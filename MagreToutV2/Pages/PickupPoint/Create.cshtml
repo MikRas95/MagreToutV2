@@ -1,0 +1,56 @@
+﻿@page
+@model MagreToutV2.Pages.PickupPoint.CreateModel
+@{
+}
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="  ModelOnly  " class="text-danger">
+            </div>
+            <div class="form-group">
+                <label hidden="hidden" asp-for="@Model.PickupPoint.PickupPointId" class="control-label"></label>
+                <input hidden="hidden" asp-for="@Model.PickupPoint.PickupPointId" class="form-control" />
+                <span asp-validation-for="@Model.PickupPoint.PickupPointId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PickupPoint.Name" class="control-label"></label>
+                <input asp-for="@Model.PickupPoint.Name" class="form-control" />
+                <span asp-validation-for="@Model.PickupPoint.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PickupPoint.Address" class="control-label"></label>
+                <input asp-for="@Model.PickupPoint.Address" class="form-control" />
+                <span asp-validation-for="@Model.PickupPoint.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PickupPoint.PostalCode" class="control-label"></label>
+                <input asp-for="@Model.PickupPoint.PostalCode" class="form-control" />
+                <span asp-validation-for="@Model.PickupPoint.PostalCode" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.PickupPoint.Country" class="control-label"></label>
+                <input asp-for="@Model.PickupPoint.Country" class="form-control" />
+                <span asp-validation-for="@Model.PickupPoint.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PickupPoint.NoOfMagazine" class="control-label"></label>
+                <input asp-for="@Model.PickupPoint.NoOfMagazine" class="form-control" />
+                <span asp-validation-for="@Model.PickupPoint.NoOfMagazine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PickupPoint.PhoneNumber" class="control-label"></label>
+                <input asp-for="@Model.PickupPoint.PhoneNumber" class="form-control" />
+                <span asp-validation-for="@Model.PickupPoint.PhoneNumber" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="@Model.PickupPoint.ContactPersonId" class="control-label"></label>
+            <input asp-for="@Model.PickupPoint.ContactPersonId" class="form-control" />
+            <span asp-validation-for="@Model.PickupPoint.ContactPersonId" class="text-danger"></span>
+        </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

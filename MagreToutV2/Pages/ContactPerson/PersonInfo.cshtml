@@ -1,0 +1,26 @@
+﻿@page
+@model MagreToutV2.Pages.ContactPerson.PersonInfoModel
+@{
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phonenumber</th>
+            <th>Email</th>
+            <th>Pickup Point</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.ContactPerson.ContactPersonId</td>
+            <td>@Model.ContactPerson.Name</td>
+            <td>@Model.ContactPerson.PhoneNumber</td>
+            <td>@Model.ContactPerson.Email</td>
+            @*<td>@Model.ContactPerson.DemoPickupPoints</td>*@
+        </tr>
+</table>
+<div class="form-group">
+    <a asp-page="/ContactPerson/Read">Back to List</a>
+</div>

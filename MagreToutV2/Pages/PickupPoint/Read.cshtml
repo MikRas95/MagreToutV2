@@ -1,0 +1,43 @@
+﻿@page
+@model MagreToutV2.Pages.PickupPoint.ReadModel
+@{
+}
+<h2>List of Pickup Points</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Country</th>
+            <th>PostalCode</th>
+            <th>No of magazines</th>
+            <th>Pickup person Id</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    @if (Model.PickupPoints != null)
+    {
+        @foreach (var point in Model.PickupPoints)
+        {
+        <tr>
+            <td>@point.PickupPointId</td>
+            <td>@point.Name</td>
+            <td>@point.Address</td>
+            <td>@point.Country</td>
+            <td>@point.PostalCode</td>
+            <td>@point.NoOfMagazine</td>
+            @*<td>@point.ContactPersonId</td>*@
+
+            <td><a class="btn btn-outline-secondary" asp-route-id="@point.PickupPointId" asp-page="/PickupPoint/Update">Update</a></td>
+            <td>
+                <p>
+                    <a asp-page="/PickupPoint/Delete" asp-route-PickupPointId="@point.PickupPointId">Delete</a>
+                </p>
+            </td>
+        </tr>
+            }
+        }
+    </tbody>
+</table>

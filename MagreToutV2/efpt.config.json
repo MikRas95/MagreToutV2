@@ -1,0 +1,53 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "MagretoutDBContext",
+   "ContextNamespace": "Models",
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": "Models",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "MagreToutV2",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[DemoAd]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DemoContactPerson]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DemoEmployee]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DemoMagazine]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DemoPickupPoint]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "(localdb)\\MSSQLLocaldb.MagreToutDB",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

@@ -1,0 +1,36 @@
+﻿@page
+@model MagreToutV2.Pages.ContactPerson.ReadModel
+@{
+}
+<h2>List of Pickup persons</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Phonenumber</th>
+            <th>Email</th>
+            <th>Pickup Point</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.PickupPeople != null) {
+            @foreach (var person in Model.PickupPeople) {
+        <tr>
+            <td>@person.ContactPersonId</td>
+            <td>@person.Name</td>
+            <td>@person.PhoneNumber</td>
+            <td>@person.Email</td>
+            @*<td>@person.DemoPickupPoints</td>*@
+            <td>
+                <p>
+                    <a asp-page="/ContactPerson/PersonInfo" asp-route-id="@person.ContactPersonId">Info</a>
+                </p>
+                <p>
+                    <a asp-page="/ContactPerson/Delete" asp-route-id="@person.ContactPersonId">Delete</a>
+                </p>
+            </td>
+        </tr>
+            }}
+    </tbody>
+</table>
