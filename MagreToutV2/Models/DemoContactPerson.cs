@@ -23,7 +23,7 @@ namespace MalgreToutV2.Models
         [Required]
         [StringLength(50)]
         public string Email { get; set; }
-        public int? PickupPointId { get; set; }
+        public int PickupPointId { get; set; }
 
         [ForeignKey(nameof(PickupPointId))]
         [InverseProperty(nameof(DemoPickupPoint.DemoContactPeople))]

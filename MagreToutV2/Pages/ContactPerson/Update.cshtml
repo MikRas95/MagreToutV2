@@ -1,0 +1,47 @@
+﻿@page
+@model MalgreToutV2.Pages.ContactPerson.UpdateModel
+@{
+    ViewData["Title"] = "Update";
+}
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="  ModelOnly  " class="text-danger">
+            </div>
+            <div class="form-group">
+                <label hidden="hidden" asp-for="@Model.PickupPeople.ContactPersonId" class="control-label"></label>
+                <input hidden="hidden" asp-for="@Model.PickupPeople.ContactPersonId" class="form-control" />
+                <span asp-validation-for="@Model.PickupPeople.ContactPersonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PickupPeople.Name" class="control-label"></label>
+                <input asp-for="@Model.PickupPeople.Name" type="text" class="form-control" />
+                <span asp-validation-for="@Model.PickupPeople.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.PickupPeople.Email" class="control-label"></label>
+                <input asp-for="@Model.PickupPeople.Email" type="text" class="form-control" />
+                <span asp-validation-for="@Model.PickupPeople.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.PickupPeople.PhoneNumber" class="control-label"></label>
+                <input asp-for="@Model.PickupPeople.PhoneNumber" type="text" class="form-control" />
+                <span asp-validation-for="@Model.PickupPeople.PhoneNumber" class="text-danger"></span>
+            </div>
+            <label>Choose a Pickup Point:</label>
+            <select asp-for="@Model.PickupPeople.PickupPointId">
+                @if (Model != null) {
+                    @foreach (var item in Model.pickupPoints) {
+                        <option value="@item.PickupPointId">@item.Name</option>
+
+                    }}
+            </select>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+                <br />
+                <a asp-page="/ContactPerson/Read">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
