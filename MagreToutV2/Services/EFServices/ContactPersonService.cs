@@ -50,5 +50,10 @@ namespace MalgreToutV2.Services.EFServices
                 context.SaveChanges();  
             }
         }
+        public void Update(DemoContactPerson ContactPerson)
+        {
+            context.DemoContactPeople.Update(ContactPerson);
+            context.SaveChanges();
+        }
     }
 }
