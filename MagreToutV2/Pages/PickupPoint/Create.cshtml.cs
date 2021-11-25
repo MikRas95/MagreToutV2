@@ -12,20 +12,16 @@ namespace MalgreToutV2.Pages.PickupPoint
     public class CreateModel : PageModel
     {
         [BindProperty]
-        public IEnumerable<DemoContactPerson> PickupPeople { get; set; }
-        [BindProperty]
         public DemoPickupPoint PickupPoint { get; set; }
         public IPickupPoint service;
-        public IContactPerson service2;
+
         
-        public CreateModel(IPickupPoint Service, IContactPerson Service2) {
+        public CreateModel(IPickupPoint Service) {
             service = Service;
-            service2 = Service2;
             PickupPoint = new DemoPickupPoint();
         }
         public IActionResult OnGet()
         {
-            PickupPeople = service2.GetContactPeople();
             return Page();
         }
         public IActionResult OnPost() {
