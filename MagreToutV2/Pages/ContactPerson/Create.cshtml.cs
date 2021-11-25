@@ -12,25 +12,30 @@ namespace MalgreToutV2.Pages.ContactPerson
     public class CreateModel : PageModel
     {
         [BindProperty]
+        public IEnumerable<DemoPickupPoint> pickupPoints { get; set; }
+        [BindProperty]
         public DemoContactPerson ContactPerson { get; set; }
+        IPickupPoint PickupPointService;
         IContactPerson ContactPersonService;
-        public CreateModel(IContactPerson service)
+        public CreateModel(IContactPerson service, IPickupPoint ppService)
         {
             this.ContactPersonService = service;
             ContactPerson = new DemoContactPerson();
+            PickupPointService = ppService;
         }
         public void OnGet()
         {
-
+            pickupPoints = PickupPointService.GetAllPickupPoints();
         }
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
+                pickupPoints = PickupPointService.GetAllPickupPoints();
                 return Page();
             }
             ContactPersonService.AddContactPerson(ContactPerson);
-            return RedirectToPage(); // Skal have et ordenligt return page nok "GetPickPersons"
+            return RedirectToPage("/ContactPerson/Read"); 
             
         }
     }
