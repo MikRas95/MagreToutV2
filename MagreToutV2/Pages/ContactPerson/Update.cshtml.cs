@@ -11,16 +11,20 @@ namespace MalgreToutV2.Pages.ContactPerson
 {
     public class UpdateModel : PageModel
     {
-        
+            [BindProperty]
+            public IEnumerable<DemoPickupPoint> pickupPoints { get; set; }
             [BindProperty]
             public DemoContactPerson PickupPeople { get; set; } = new DemoContactPerson();
             public void OnGet(int ContactPersonId)
             {
                 PickupPeople = ContactPersonService.GetContactPerson(ContactPersonId);
+                pickupPoints = ppService.GetAllPickupPoints();
             }
             IContactPerson ContactPersonService;
-            public UpdateModel(IContactPerson service)
+            IPickupPoint ppService;
+            public UpdateModel(IContactPerson service, IPickupPoint PPService)
             {
+                ppService = PPService;
                 this.ContactPersonService = service;
             }
             public IActionResult OnPost()
