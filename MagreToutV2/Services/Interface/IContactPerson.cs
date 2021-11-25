@@ -12,5 +12,6 @@ namespace MalgreToutV2.Services.Interface
         void AddContactPerson(DemoContactPerson ContactPerson);
         DemoContactPerson GetContactPerson(int ContactPersonId);
         void DeleteContactPerson(DemoContactPerson ContactPerson);
+        void Update(DemoContactPerson ContactPerson);
     }
 }
