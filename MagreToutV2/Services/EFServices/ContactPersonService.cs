@@ -2,18 +2,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MagreToutV2.Models;
-using MagreToutV2.Services.Interface;
+using MalgreToutV2.Models;
+using MalgreToutV2.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace MagreToutV2.Services.EFServices
+namespace MalgreToutV2.Services.EFServices
 {
     public class ContactPersonService : IContactPerson
     {
 
-        public MagretoutDBContext context;
-        public ContactPersonService(MagretoutDBContext Context) {
+        public MalgretoutDBContext context;
+        public ContactPersonService(MalgretoutDBContext Context) {
             context = Context;
         }
         public IEnumerable<DemoContactPerson> GetContactPeople() {

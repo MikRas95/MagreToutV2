@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MagreToutV2.Models;
+using MalgreToutV2.Models;
 
-namespace MagreToutV2.Services.Interface
+namespace MalgreToutV2.Services.Interface
 {
     public interface IContactPerson
     {

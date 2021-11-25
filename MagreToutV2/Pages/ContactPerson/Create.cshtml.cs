@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MagreToutV2.Services.Interface;
-using MagreToutV2.Models;
+using MalgreToutV2.Services.Interface;
+using MalgreToutV2.Models;
 
-namespace MagreToutV2.Pages.ContactPerson
+namespace MalgreToutV2.Pages.ContactPerson
 {
     public class CreateModel : PageModel
     {

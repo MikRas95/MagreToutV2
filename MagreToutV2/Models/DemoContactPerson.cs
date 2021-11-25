@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
-namespace MagreToutV2.Models
+namespace MalgreToutV2.Models
 {
     [Table("DemoContactPerson")]
     public partial class DemoContactPerson

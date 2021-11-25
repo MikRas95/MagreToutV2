@@ -1,6 +1,6 @@
 ﻿{
    "CodeGenerationMode": 0,
-   "ContextClassName": "MagretoutDBContext",
+   "ContextClassName": "MalgretoutDBContext",
    "ContextNamespace": "Models",
    "DefaultDacpacSchema": null,
    "FilterSchemas": false,
@@ -8,7 +8,7 @@
    "ModelNamespace": null,
    "OutputContextPath": "Models",
    "OutputPath": "Models",
-   "ProjectRootNamespace": "MagreToutV2",
+   "ProjectRootNamespace": "MalgreToutV2",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 0,
    "SelectedToBeGenerated": 0,
@@ -34,7 +34,7 @@
          "ObjectType": 0
       }
    ],
-   "UiHint": "(localdb)\\MSSQLLocaldb.MagreToutDB",
+   "UiHint": "(localdb)\\MSSQLLocaldb.MalgreToutDB",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,

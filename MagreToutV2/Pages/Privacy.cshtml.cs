@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MagreToutV2.Pages
+namespace MalgreToutV2.Pages
 {
     public class PrivacyModel : PageModel
     {

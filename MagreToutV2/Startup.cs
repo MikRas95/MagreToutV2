@@ -8,11 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MagreToutV2.Models;
-using MagreToutV2.Services.Interface;
-using MagreToutV2.Services.EFServices;
+using MalgreToutV2.Models;
+using MalgreToutV2.Services.Interface;
+using MalgreToutV2.Services.EFServices;
 
-namespace MagreToutV2
+namespace MalgreToutV2
 {
     public class Startup
     {
@@ -27,7 +27,7 @@ namespace MagreToutV2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddDbContext<MagretoutDBContext>();
+            services.AddDbContext<MalgretoutDBContext>();
             services.AddTransient<IContactPerson, ContactPersonService>();
             services.AddTransient<IPickupPoint, PickupPointService>();
         }

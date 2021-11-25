@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MagreToutV2.Models;
-using MagreToutV2.Services.Interface;
+using MalgreToutV2.Models;
+using MalgreToutV2.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 
-namespace MagreToutV2.Services.EFServices
+namespace MalgreToutV2.Services.EFServices
 {
     public class PickupPointService : IPickupPoint
     {
-        private MagretoutDBContext context;
-        public PickupPointService(MagretoutDBContext context)
+        private MalgretoutDBContext context;
+        public PickupPointService(MalgretoutDBContext context)
         {
             this.context = context;
         }
