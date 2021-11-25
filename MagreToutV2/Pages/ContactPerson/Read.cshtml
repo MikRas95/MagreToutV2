@@ -5,40 +5,43 @@
 <h2>List of Pickup persons</h2>
 <br/>
 <a class="btn btn-outline-primary" asp-page="/ContactPerson/Create">Create</a>
-
-<table class="table">
-    <thead>
+<br/>
+<br/>
+<table class="table table-bordered table-responsive-sm table-hover">
+    <thead style="background: lightgray;">
         <tr>
             <th>Id</th>
             <th>Name</th>
             <th>Phone number</th>
             <th>Email</th>
             <th>Pickup Point</th>
-            <th></th>
+
         </tr>
     </thead>
     <tbody>
-        @if (Model.PickupPeople != null) {
-            @foreach (var person in Model.PickupPeople) {
-        <tr>
-            <td>@person.ContactPersonId</td>
-            <td>@person.Name</td>
-            <td>@person.PhoneNumber</td>
-            <td>@person.Email</td>
-            <td></td>
-            @*<td>@person.DemoPickupPoints</td>*@
-            <td>
+        @if (Model.PickupPeople != null)
+        {
+            @foreach (var person in Model.PickupPeople)
+            {
+                <tr>
+                    <td>@person.ContactPersonId</td>
+                    <td>@person.Name</td>
+                    <td>@person.PhoneNumber</td>
+                    <td>@person.Email</td>
+                    <td></td>
+                    @*<td>@person.DemoPickupPoints</td>*@
+                    <td>
 
-                <a class="btn btn-outline-secondary" asp-page="/ContactPerson/PersonInfo" asp-route-id="@person.ContactPersonId">Info</a>
-            </td>
-                <td>
-                    <a class="btn btn-outline-danger" asp-page="/ContactPerson/Delete" asp-route-ContactPersonId="@person.ContactPersonId">Delete</a>
-                
+                        <a class="btn btn-outline-secondary" asp-page="/ContactPerson/PersonInfo" asp-route-id="@person.ContactPersonId">Info</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-danger" asp-page="/ContactPerson/Delete" asp-route-ContactPersonId="@person.ContactPersonId">Delete</a>
 
-            </td>
-                
-            
-        </tr>
+
+                    </td>
+
+
+                </tr>
             }}
     </tbody>
 </table>
