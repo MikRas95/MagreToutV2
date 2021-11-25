@@ -25,19 +25,20 @@
             <td>@person.Name</td>
             <td>@person.PhoneNumber</td>
             <td>@person.Email</td>
+            <td>@person.PickupPoint.Name</td>
             <td></td>
             @*<td>@person.DemoPickupPoints</td>*@
             <td>
 
                 <a class="btn btn-outline-secondary" asp-page="/ContactPerson/PersonInfo" asp-route-id="@person.ContactPersonId">Info</a>
             </td>
-                <td>
-                    <a class="btn btn-outline-danger" asp-page="/ContactPerson/Delete" asp-route-ContactPersonId="@person.ContactPersonId">Delete</a>
-                
+            <td>
+                <a class="btn btn-outline-danger" asp-page="/ContactPerson/Delete" asp-route-ContactPersonId="@person.ContactPersonId">Delete</a>
+
 
             </td>
-                
-            
+
+
         </tr>
             }}
     </tbody>

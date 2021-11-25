@@ -7,17 +7,25 @@ using MalgreToutV2.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 
 
+
 namespace MalgreToutV2.Services.EFServices
 {
     public class ContactPersonService : IContactPerson
     {
+        private IPickupPoint ppService;
+        private MalgretoutDBContext context;
 
-        public MalgretoutDBContext context;
-        public ContactPersonService(MalgretoutDBContext Context) {
+        public ContactPersonService(MalgretoutDBContext Context, IPickupPoint Service) {
             context = Context;
+            ppService = Service;
         }
         public IEnumerable<DemoContactPerson> GetContactPeople() {
-            return context.DemoContactPeople;
+            IEnumerable<DemoContactPerson> list;
+            list = context.DemoContactPeople.Where(m => m.PickupPointId == m.PickupPoint.PickupPointId)
+                .Include(m => m.PickupPoint)
+                .AsNoTracking();
+               
+            return list;
         }
        
         public void AddContactPerson(DemoContactPerson ContactPerson)
@@ -26,9 +34,12 @@ namespace MalgreToutV2.Services.EFServices
             context.SaveChanges();
         }
 
-        public DemoContactPerson GetContactPerson(int ContactPersonId)
+        public DemoContactPerson GetContactPerson(int id)
         {
-            return context.DemoContactPeople.Find(ContactPersonId);
+            DemoContactPerson contactPerson = context.DemoContactPeople.Include(m => m.PickupPoint).AsNoTracking().FirstOrDefault(m => m.ContactPersonId == id);
+
+
+            return contactPerson;
         }
 
         public void DeleteContactPerson(DemoContactPerson ContactPerson)
