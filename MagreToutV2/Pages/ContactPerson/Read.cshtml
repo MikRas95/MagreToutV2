@@ -25,6 +25,7 @@
             <td>@person.Name</td>
             <td>@person.PhoneNumber</td>
             <td>@person.Email</td>
+            <td>@person.PickupPoint.Name</td>
             <td></td>
             @*<td>@person.DemoPickupPoints</td>*@
             <td>
@@ -36,6 +37,7 @@
             </td>
             <td>
                 <a class="btn btn-outline-secondary" asp-page="/ContactPerson/Update" asp-route-ContactPersonId="@person.ContactPersonId">Update</a>
+
             </td>
 
 

@@ -12,16 +12,20 @@ namespace MalgreToutV2.Pages.ContactPerson
 {
     public class PersonInfoModel : PageModel
     {
+        
         [BindProperty]
         public DemoContactPerson ContactPerson { get; set; }
         public IContactPerson service;
-        public PersonInfoModel(IContactPerson Service) {
+        public IPickupPoint ppService;
+        public PersonInfoModel(IContactPerson Service, IPickupPoint Service2) {
             service = Service;
+            ppService = Service2;
             ContactPerson = new DemoContactPerson();
         }
         public void OnGet(int id)
         {
             ContactPerson = service.GetContactPerson(id);
+            
         }
     }
 }
