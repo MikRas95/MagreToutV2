@@ -1,7 +1,6 @@
 ﻿@page
-@model IndexModel
+@model MalgreToutV2.Pages.ChooseDatabaseModel
 @{
-    ViewData["Title"] = "Home page";
 }
 
 <div class="text-center">
@@ -10,15 +9,13 @@
     <div class="wrapper">
         <div class="row">
             <div class="col-sm">
-                <a asp-page="/ChooseDatabase"><img src="~/imgs/database.png" class="front-img" /></a>
+                <a asp-page="/PickupPoint/Read"><img src="~/imgs/database.png" class="front-img" /></a>
+                <p>Pickup Point</p>
             </div>
 
             <div class="col-sm">
-                <a href="https://www.malgretout.dk/" target="_blank"><img src="~/imgs/HEST.gif" class="front-img" /></a>
-            </div>
-
-            <div class="col-sm">
-                <img src="~/imgs/location.png" class="front-img"/>
+                <a asp-page="/ContactPerson/Read"><img src="~/imgs/location.png" class="front-img" /></a>
+                <p>Contact Person</p>
             </div>
         </div>
     </div>
@@ -33,10 +30,10 @@
         border-radius: 25px;*/
     }
 
-    .front-img:hover {
-        opacity: 0.8;
-        filter: blur(1px);
-    }
+        .front-img:hover {
+            opacity: 0.8;
+            filter: blur(1px);
+        }
 
     .col-sm {
         padding: 2em;
