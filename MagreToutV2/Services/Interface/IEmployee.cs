@@ -8,6 +8,9 @@ namespace MalgreToutV2.Services.Interface
 {
     public interface IEmployee
     {
-        DemoEmployee GetEmployee(int EmployeeId);
+        DemoEmployee GetEmployee(int id);
+        void DeleteEmployee(DemoEmployee employee);
+        void AddEmployee(DemoEmployee Employee);
+        void UpdateEmployee(DemoEmployee employee);
     }
 }
