@@ -1,11 +1,20 @@
 ﻿@page
 @model MalgreToutV2.Pages.Employee.ReadModel
 @{
+     ViewData["Title"] = "GetMovies";
 }
 <h2>List of Pickup employees</h2>
 <br />
 <a class="btn btn-outline-primary" asp-page="/Employee/Create">Create</a>
 <br />
+<br />
+<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Filter" />
+        <a asp-page="/Employee/Read">Back to Full List </a>
+    </p>
+</form>
 <br />
 <table class="table table-bordered table-responsive-sm table-hover">
     <thead style="background: lightgray;">
