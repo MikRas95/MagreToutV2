@@ -9,13 +9,16 @@
 <br/>
 <table class="table table-bordered table-responsive-sm table-hover">
     <thead style="background: lightgray;">
-        <tr>
+        <tr style="background: lightgray;">
             <th>Id</th>
             <th>Name</th>
             <th>Phone number</th>
             <th>Email</th>
             <th>Pickup Point</th>
-
+            <th></th>
+            <th></th>
+            <th></th>
+            
         </tr>
     </thead>
     <tbody>
@@ -29,8 +32,7 @@
             <td>@person.PhoneNumber</td>
             <td>@person.Email</td>
             <td>@person.PickupPoint.Name</td>
-            <td></td>
-            @*<td>@person.DemoPickupPoints</td>*@
+            
             <td>
 
                 <a class="btn btn-outline-secondary" asp-page="/ContactPerson/PersonInfo" asp-route-id="@person.ContactPersonId">Info</a>
