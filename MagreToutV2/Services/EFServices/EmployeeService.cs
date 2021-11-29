@@ -7,7 +7,6 @@ using MalgreToutV2.Services.EFServices;
 using MalgreToutV2.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace MalgreToutV2.Services.EFServices
 {
     public class EmployeeService : IEmployee
