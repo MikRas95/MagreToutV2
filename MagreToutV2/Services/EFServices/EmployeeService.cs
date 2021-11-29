@@ -44,7 +44,8 @@ namespace MalgreToutV2.Services.EFServices
         }
         public IEnumerable<DemoEmployee> GetEmployees(string filter)
         {
-            return this.context.Set<DemoEmployee>().Where(s => s.Name.StartsWith(filter)).AsNoTracking().ToList();
+            return this.context.Set<DemoEmployee>().Where(s => s.Name.StartsWith(filter) || s.Role.Contains(filter))
+                .AsNoTracking().ToList();
         }
     }
 }
