@@ -25,7 +25,11 @@
             <dd class="col-sm-10">  @Model.PickupPoint.ContactPersonId </dd>*@
         </dl>
         <input type="hidden" asp-for="PickupPoint.PickupPointId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <br/>
+        <br/>
+        <div>
+            <a class="btn btn-outline-secondary" asp-page="/PickupPoint/Read">Back to List</a>
+        </div>
     </form>
 </div>

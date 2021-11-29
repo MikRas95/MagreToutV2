@@ -13,6 +13,8 @@ namespace MalgreToutV2.Pages.Employee
     public class ReadModel : PageModel {
         [BindProperty]
         public IEnumerable<DemoEmployee> Employees { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string FilterCriteria { get; set; }
 
         private IEmployee service;
 
@@ -22,6 +24,11 @@ namespace MalgreToutV2.Pages.Employee
         }
         public void OnGet()
         {
+            if (!String.IsNullOrEmpty(FilterCriteria))
+            {
+                Employees = service.GetEmployees(FilterCriteria);
+            }
+            else
             Employees = service.GetEmployees();
         }
     }
