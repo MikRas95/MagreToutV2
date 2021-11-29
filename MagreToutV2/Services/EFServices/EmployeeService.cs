@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using MalgreToutV2.Models;
 using MalgreToutV2.Services.EFServices;
 using MalgreToutV2.Services.Interface;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace MalgreToutV2.Services.EFServices
 {
@@ -22,6 +24,15 @@ namespace MalgreToutV2.Services.EFServices
         }
         public DemoEmployee GetEmployee(int id) {
             return context.DemoEmployees.Find(id);
+
+        public void AddEmployee(DemoEmployee Employee)
+        {
+            context.Add(Employee);
+
+        public void UpdateEmployee(DemoEmployee employee)
+        {
+            context.DemoEmployees.Update(employee);
+            context.SaveChanges();
         }
     }
 }
