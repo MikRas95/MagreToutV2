@@ -11,6 +11,5 @@ namespace MalgreToutV2.Services.Interface
         void AddEmployee(DemoEmployee Employee);
         DemoEmployee GetEmployee(int employeeId);
         void UpdateEmployee(DemoEmployee employee);
-
     }
 }
