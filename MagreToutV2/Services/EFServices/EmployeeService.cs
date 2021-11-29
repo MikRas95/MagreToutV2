@@ -6,13 +6,21 @@ using MalgreToutV2.Models;
 using MalgreToutV2.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace MalgreToutV2.Services.EFServices
 {
     public class EmployeeService : IEmployee
     {
-        private IEmployee EService;
-        private MalgretoutDBContext context;
+        private MalgretoutDBContext context;;
 
+        public EmployeeService(MalgretoutDBContext Context)
+        {
+            context = Context;
+            
+        }
+        public void AddEmployee(DemoEmployee Employee)
+        {
+            context.Add(Employee);
         public DemoEmployee GetEmployee(int employeeId)
         {
             throw new NotImplementedException();
