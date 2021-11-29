@@ -4,7 +4,7 @@
 }
 <h2>List of Pickup employees</h2>
 <br />
-<a class="btn btn-outline-primary" asp-page="/Contactemployee/Create">Create</a>
+<a class="btn btn-outline-primary" asp-page="/Employee/Create">Create</a>
 <br />
 <br />
 <table class="table table-bordered table-responsive-sm table-hover">
@@ -12,9 +12,9 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Phone number</th>
-            <th>Email</th>
-            <th>Pickup Point</th>
+            <th>Role</th>
+            <th>Username</th>
+            <th>Password</th>
 
         </tr>
     </thead>
@@ -37,10 +37,10 @@
                         <a class="btn btn-outline-secondary" asp-page="/Employee/employeeInfo" asp-route-id="@employee.EmployeeId">Info</a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" asp-page="/Employee/Delete" asp-route-ContactemployeeId="@employee.Delete">Delete</a>
+                        <a class="btn btn-outline-danger" asp-page="/Employee/Delete" asp-route-EmployeeId="@employee.EmployeeId">Delete</a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-secondary" asp-page="/Employee/Update" asp-route-ContactemployeeId="@employee.Update">Update</a>
+                        <a class="btn btn-outline-secondary" asp-page="/Employee/Update" asp-route-EmployeeId="@employee.EmployeeId">Update</a>
 
                     </td>
 

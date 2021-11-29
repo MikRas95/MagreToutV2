@@ -24,15 +24,24 @@ namespace MalgreToutV2.Services.EFServices
         }
         public DemoEmployee GetEmployee(int id) {
             return context.DemoEmployees.Find(id);
-
+        }
         public void AddEmployee(DemoEmployee Employee)
         {
             context.Add(Employee);
-
+            context.SaveChanges();
+        }
         public void UpdateEmployee(DemoEmployee employee)
         {
             context.DemoEmployees.Update(employee);
             context.SaveChanges();
+        }
+        public IEnumerable<DemoEmployee> GetEmployees()
+        {
+            IEnumerable<DemoEmployee> list;
+            list = context.DemoEmployees.Where(m => m.EmployeeId == m.EmployeeId)
+            .AsNoTracking();
+
+            return list;
         }
     }
 }

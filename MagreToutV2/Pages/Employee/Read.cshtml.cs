@@ -22,7 +22,7 @@ namespace MalgreToutV2.Pages.Employee
         }
         public void OnGet()
         {
-            Employees = service.GetEmployee();
+            Employees = service.GetEmployees();
         }
     }
 }
