@@ -8,7 +8,7 @@ namespace MalgreToutV2.Services.Interface
 {
     public interface IContactPerson
     {
-        public IEnumerable<DemoContactPerson> GetContactPeople();
+        public IEnumerable<DemoContactPerson> GetContactPeople(string name, string pickupPoint);
         void AddContactPerson(DemoContactPerson ContactPerson);
         DemoContactPerson GetContactPerson(int ContactPersonId);
         void DeleteContactPerson(DemoContactPerson ContactPerson);

@@ -7,6 +7,13 @@
 <a class="btn btn-outline-primary" asp-page="/ContactPerson/Create">Create</a>
 <br/>
 <br/>
+<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria"/>
+        <input type="submit" value="Filter" />
+        <a asp-page="Read">Back to Full List </a>
+    </p>
+</form>
 <table class="table table-bordered table-responsive-sm table-hover">
     <thead style="background: lightgray;">
         <tr>

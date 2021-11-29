@@ -17,14 +17,18 @@ namespace MalgreToutV2.Services.EFServices
         public ContactPersonService(MalgretoutDBContext Context) {
             context = Context;
         }
-        public IEnumerable<DemoContactPerson> GetContactPeople() {
+        public IEnumerable<DemoContactPerson> GetContactPeople(string name, string pickupPoint) {
             IEnumerable<DemoContactPerson> list;
             list = context.DemoContactPeople.Where(m => m.PickupPointId == m.PickupPoint.PickupPointId)
                 .Include(m => m.PickupPoint)
                 .AsNoTracking();
-               
-            return list;
+            if (String.IsNullOrWhiteSpace(name)) {
+                return list;
+            }
+            return list.Where(c => (c.Name.ToLower().Contains(name.ToLower())
+            || (c.PickupPoint.Name.ToLower().Contains(name.ToLower()))));
         }
+        
        
         public void AddContactPerson(DemoContactPerson ContactPerson)
         {

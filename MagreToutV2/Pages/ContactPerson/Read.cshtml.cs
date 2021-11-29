@@ -13,16 +13,20 @@ namespace MalgreToutV2.Pages.ContactPerson
     public class ReadModel : PageModel {
         [BindProperty]
         public IEnumerable<DemoContactPerson> PickupPeople { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string FilterCriteria { get; set; }
+        [BindProperty]
+        public string FilterCriteria2 { get; set; }
 
         private IContactPerson service;
 
         public ReadModel(IContactPerson Service) {
             service = Service;
-            
+            FilterCriteria2 = FilterCriteria;
         }
         public void OnGet()
         {
-            PickupPeople = service.GetContactPeople();
+            PickupPeople = service.GetContactPeople(FilterCriteria, FilterCriteria2);
         }
     }
 }
