@@ -13,5 +13,6 @@ namespace MalgreToutV2.Services.Interface
         void AddEmployee(DemoEmployee Employee);
         void UpdateEmployee(DemoEmployee employee);
         IEnumerable<DemoEmployee> GetEmployees();
+        IEnumerable<DemoEmployee> GetEmployees(string filter);
     }
 }
