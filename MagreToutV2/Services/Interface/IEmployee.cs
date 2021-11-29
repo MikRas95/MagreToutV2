@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace MalgreToutV2.Services.Interface
 {
-    public class IEmployee
+    public interface IEmployee
     {
+        
     }
 }
