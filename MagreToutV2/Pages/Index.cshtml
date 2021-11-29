@@ -5,7 +5,8 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Malgré Tout</h1>
+    <img src="imgs/malgre_tout_logo-300x116-1.webp" alt="MalgréTout_Forside" height="200" />
+    @*<h1 class="display-4">Malgré Tout</h1>*@
 
     <div class="wrapper">
         <div class="row">
@@ -18,7 +19,7 @@
             </div>
 
             <div class="col-sm">
-                <img src="~/imgs/location.png" class="front-img"/>
+                <img src="~/imgs/location.png" class="front-img" />
             </div>
         </div>
     </div>
@@ -29,14 +30,17 @@
         width: 12em;
         height: auto;
         transition: ease-in-out 0.2s;
-        /*border: 1px solid black;
-        border-radius: 25px;*/
+        border: 1px solid black;
+        padding: 30px;
+        
+        /*border-radius: 25px;*/
     }
 
-    .front-img:hover {
-        opacity: 0.8;
-        filter: blur(1px);
-    }
+        .front-img:hover {
+            opacity: 1;
+            filter: blur(1px);
+            font-size: 120%;
+        }
 
     .col-sm {
         padding: 2em;
