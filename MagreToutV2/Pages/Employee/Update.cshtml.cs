@@ -32,7 +32,7 @@ namespace MalgreToutV2.Pages.Employee
                 return Page();
             }
             employeeService.UpdateEmployee(Employee);
-            return RedirectToPage("/Emploee/Read");
+            return RedirectToPage("/Employee/Read");
         }
 
     }
