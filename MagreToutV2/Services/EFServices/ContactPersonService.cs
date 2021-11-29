@@ -12,12 +12,11 @@ namespace MalgreToutV2.Services.EFServices
 {
     public class ContactPersonService : IContactPerson
     {
-        private IPickupPoint ppService;
+        
         private MalgretoutDBContext context;
 
-        public ContactPersonService(MalgretoutDBContext Context, IPickupPoint Service) {
+        public ContactPersonService(MalgretoutDBContext Context) {
             context = Context;
-            ppService = Service;
         }
         public IEnumerable<DemoContactPerson> GetContactPeople() {
             IEnumerable<DemoContactPerson> list;
