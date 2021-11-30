@@ -2,3 +2,38 @@
 @model MalgreToutV2.Pages.Employee.UpdateModel
 @{
 }
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+            <div class="form-group">
+                <label hidden="hidden" asp-for="@Model.Employee.EmployeeId" class="control-label"></label>
+                <input hidden="hidden" asp-for="@Model.Employee.EmployeeId" class="form-control" />
+                <span asp-validation-for="@Model.Employee.EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Employee.Name" class="control-label"></label>
+                <input asp-for="@Model.Employee.Name" type="text" class="form-control" />
+                <span asp-validation-for="@Model.Employee.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Employee.Role" class="control-label"></label>
+                <input asp-for="@Model.Employee.Role" type="text" class="form-control" />
+                <span asp-validation-for="@Model.Employee.Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Employee.Username" class="control-label"></label>
+                <input asp-for="@Model.Employee.Username" type="text" class="form-control" />
+                <span asp-validation-for="@Model.Employee.Username" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+                <br />
+                <a asp-page="/Employee/Read">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
