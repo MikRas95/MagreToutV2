@@ -78,3 +78,11 @@ body {
 .nav-item {
     color: white;
 }
+
+h1, h2, h3, h4 {
+    font-family: 'Roboto', sans-serif;
+}
+
+p, td, th, a {
+    font-family: 'Raleway', sans-serif;
+}
