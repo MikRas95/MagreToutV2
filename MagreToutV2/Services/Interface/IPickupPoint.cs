@@ -9,12 +9,13 @@ namespace MalgreToutV2.Services.Interface
 {
     public interface IPickupPoint
     {
-        void Update(DemoPickupPoint movie);
+        void Update(DemoPickupPoint pickUpPoint);
         IEnumerable<DemoPickupPoint> GetAllPickupPoints();
         void AddPickupPoint(DemoPickupPoint pickUpPoint);
         void DeletePickupPoint(DemoPickupPoint pickupPoint);
         DemoPickupPoint GetPickupPointById(int PickupPointId);
         DemoPickupPoint GetPickupPoint(int id);
+        IEnumerable<DemoPickupPoint> GetPickupPoints(string filter);
     }   
 
 }
