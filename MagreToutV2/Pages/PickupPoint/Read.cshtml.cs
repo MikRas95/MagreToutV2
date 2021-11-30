@@ -15,15 +15,21 @@ namespace MalgreToutV2.Pages.PickupPoint
         [BindProperty]
         public IEnumerable<DemoPickupPoint> PickupPoints { get; set; }
         private IPickupPoint PickupPointService;
+        [BindProperty(SupportsGet = true)]
+        public string FilterCriteria { get; set; }
         public ReadModel(IPickupPoint service)
         {
             PickupPointService = service;
             PickupPoints = new List<DemoPickupPoint>();
         }
-        public IActionResult OnGet()
+        public void OnGet()
         {
+            if (!String.IsNullOrEmpty(FilterCriteria))
+            {
+                PickupPoints = PickupPointService.GetPickupPoints(FilterCriteria);
+            }
+            else
             PickupPoints = PickupPointService.GetAllPickupPoints();
-            return Page();
         }
 
     }
