@@ -1,11 +1,20 @@
 ﻿@page
 @model MalgreToutV2.Pages.PickupPoint.ReadModel
 @{
+    ViewData["Title"] = "GetPickupPoints";
 }
 <h2>List of Pickup Points</h2>
-<br/>
-<div><a class="btn btn-outline-primary" asp-page="/PickupPoint/Create">Create</a></div>
-<br/>
+<br />
+<a class="btn btn-outline-primary" asp-page="/PickupPoint/Create">Create</a>
+<br />
+<br />
+<form>
+    <p>
+        Search: <input type="text" asp-for="FilterCriteria" />
+        <input type="submit" value="Filter" />
+        <a asp-page="/PickupPoint/Read">Back to Full List </a>
+    </p>
+</form>
 <table class="table table-bordered table-responsive-sm table-hover">
     <thead style="background:lightgray">
         <tr>
@@ -22,24 +31,24 @@
     </thead>
     <tbody>
 
-    @if (Model.PickupPoints != null)
-    {
-        @foreach (var point in Model.PickupPoints)
+        @if (Model.PickupPoints != null)
         {
-        <tr>
-            <td>@point.PickupPointId</td>
-            <td>@point.Name</td>
-            <td>@point.Address</td>
-            <td>@point.Country</td>
-            <td>@point.PostalCode</td>
-            <td>@point.NoOfMagazine</td>
-            <td>@point.DemoContactPeople</td> @*erstat når den implementeres*@
-            @*<td>@point.ContactPersonId</td>*@
+            @foreach (var point in Model.PickupPoints)
+            {
+                <tr>
+                    <td>@point.PickupPointId</td>
+                    <td>@point.Name</td>
+                    <td>@point.Address</td>
+                    <td>@point.Country</td>
+                    <td>@point.PostalCode</td>
+                    <td>@point.NoOfMagazine</td>
+                    <td>@point.DemoContactPeople</td> @*erstat når den implementeres*@
+                    @*<td>@point.ContactPersonId</td>*@
 
-            <td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
-            <td><a class="btn btn-outline-secondary" asp-route-id="@point.PickupPointId" asp-page="/PickupPoint/Update">Update</a> </td>
-            <td> <a class="btn btn-outline-danger" asp-page="/PickupPoint/Delete" asp-route-PickupPointId="@point.PickupPointId">Delete</a></td>
-        </tr>
+                    <td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
+                    <td><a class="btn btn-outline-secondary" asp-route-id="@point.PickupPointId" asp-page="/PickupPoint/Update">Update</a> </td>
+                    <td> <a class="btn btn-outline-danger" asp-page="/PickupPoint/Delete" asp-route-PickupPointId="@point.PickupPointId">Delete</a></td>
+                </tr>
             }
         }
     </tbody>
