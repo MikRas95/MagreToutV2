@@ -28,7 +28,12 @@
                 <input asp-for="@Model.Employee.Username" type="text" class="form-control" />
                 <span asp-validation-for="@Model.Employee.Username" class="text-danger"></span>
             </div>
-            
+            <div class="form-group">
+                <label asp-for="@Model.Employee.Password" class="control-label"></label>
+                <input asp-for="@Model.Employee.Password" type="password" class="form-control" />
+                <span asp-validation-for="@Model.Employee.Password" class="text-danger"></span>
+            </div>
+
             <div class="form-group">
                 <input type="submit" value="Update" class="btn btn-primary" />
                 <br />
