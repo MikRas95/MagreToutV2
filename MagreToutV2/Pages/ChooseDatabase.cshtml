@@ -4,7 +4,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Malgré Tout</h1>
+    <h1 class="display-4">Vælg database</h1>
 
     <div class="wrapper">
         <div class="row">
@@ -16,6 +16,11 @@
             <div class="col-sm">
                 <a asp-page="/ContactPerson/Read"><img src="~/imgs/location.png" class="front-img" /></a>
                 <p>Contact Person</p>
+            </div>
+
+            <div class="col-sm">
+                <a asp-page="/Employee/Read"><img src="~/imgs/employee.png" class="front-img" /></a>
+                <p>Employees</p>
             </div>
         </div>
     </div>
@@ -29,8 +34,8 @@
     }
 
         .front-img:hover {
-            opacity: 0.8;
-            filter: blur(1px);
+            opacity: 1;
+            font-size: 102%;
         }
 
     .col-sm {

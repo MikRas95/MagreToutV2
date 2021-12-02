@@ -22,27 +22,28 @@
         </tr>
 </table>*@
 <h1>@Model.Employee.Name</h1>
+<p></p>
 <div class="row">
-    <div class="col-sm-5">
-        <img src="~/imgs/wright.jpeg" style="object-fit: cover;"/>
+    <div class="col-sm-4">
+        <div><img src="~/imgs/employee.png" style="height: auto; width: 100%; object-fit: contain;" /></div>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-6">
         <div>
             <table>
                 <tr>
-                    <td>Name: </td>
+                    <td><strong>Name:</strong></td>
                     <td>@Model.Employee.Name</td>
                 </tr>
                 <tr>
-                    <td>Employee ID:</td>
+                    <td><strong>Employee ID:</strong></td>
                     <td>@Model.Employee.EmployeeId</td>
                 </tr>
                 <tr>
-                    <td>Role: </td>
+                    <td><strong>Role:</strong></td>
                     <td>@Model.Employee.Role</td>
                 </tr>
                 <tr>
-                    <td>Username: </td>
+                    <td><strong>Username:</strong></td>
                     <td>@Model.Employee.Username</td>
                 </tr>
             </table>
@@ -50,7 +51,7 @@
     </div>
 </div>
 <div class="form-group">
-    <a asp-page="/Employee/Read">Back to List</a>
+    <p><a asp-page="/Employee/Read">Back to List</a></p>
 </div>
 
 <style>
@@ -60,7 +61,7 @@
     }
 
     td, th {
-        text-align: left;
+        text-align: left;   
         padding: 8px;
     }
 </style>
