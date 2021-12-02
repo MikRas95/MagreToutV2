@@ -14,18 +14,29 @@
             <th>NoOfMagazine</th>
             <th>OpeningTime</th>
             <th>CloseningTime</th>
+            <th>ContactPerson</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>@Model.PickupPoint.Name</td>
-            <td>@Model.PickupPoint.Address</td>
-            <td>@Model.PickupPoint.PostalCode</td>
-            <td>@Model.PickupPoint.Country</td>
-            <td>@Model.PickupPoint.PhoneNumber</td>
-            <td>@Model.PickupPoint.NoOfMagazine</td>
-            <td>@Model.PickupPoint.OpeningTime</td>
-            <td>@Model.PickupPoint.CloseningTime</td>
+            @*<td>@Model.PickupPoint.Name</td>
+        <td>@Model.PickupPoint.Address</td>
+        <td>@Model.PickupPoint.PostalCode</td>
+        <td>@Model.PickupPoint.Country</td>
+        <td>@Model.PickupPoint.PhoneNumber</td>
+        <td>@Model.PickupPoint.NoOfMagazine</td>
+        <td>@Model.PickupPoint.OpeningTime</td>
+        <td>@Model.PickupPoint.CloseningTime</td>
+        <td>@Model.ContactPerson.Name</td>*@
+        <td>@Model.ContactPerson.PickupPoint.Name</td>
+        <td>@Model.ContactPerson.PickupPoint.Address</td>
+        <td>@Model.ContactPerson.PickupPoint.PostalCode</td>
+        <td>@Model.ContactPerson.PickupPoint.Country</td>
+        <td>@Model.ContactPerson.PickupPoint.PhoneNumber</td>
+        <td>@Model.ContactPerson.PickupPoint.NoOfMagazine</td>
+        <td>@Model.ContactPerson.PickupPoint.OpeningTime</td>
+        <td>@Model.ContactPerson.PickupPoint.CloseningTime</td>
+        <td>@Model.ContactPerson.Name</td>
         </tr>
 </table>
 <div class="form-group">

@@ -59,5 +59,9 @@ namespace MalgreToutV2.Services.EFServices
             return this.context.Set<DemoPickupPoint>().Where(s => s.Name.StartsWith(filter) || s.Address.Contains(filter))
                 .AsNoTracking().ToList();
         }
+        public DemoPickupPoint TestMyGETJOIN()
+        {
+            SELECT  
+        }
     }
 }

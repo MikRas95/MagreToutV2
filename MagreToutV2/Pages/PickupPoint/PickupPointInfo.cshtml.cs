@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using MalgreToutV2.Models;
 using MalgreToutV2.Services.Interface;
 using MalgreToutV2.Services.EFServices;
+using Microsoft.EntityFrameworkCore;
 
 namespace MalgreToutV2.Pages.PickupPoint
 {
@@ -14,15 +15,22 @@ namespace MalgreToutV2.Pages.PickupPoint
     {
         [BindProperty]
         public DemoPickupPoint PickupPoint { get; set; }
+        [BindProperty]
+        public DemoContactPerson ContactPerson { get; set; }
         public IPickupPoint service;
-        public PickupPointInfoModel(IPickupPoint Service)
+        public IContactPerson CPservice;
+        public PickupPointInfoModel(IPickupPoint Service, IContactPerson contactPerson)
         {
+            CPservice = contactPerson;
             service = Service;
             PickupPoint = new DemoPickupPoint();
+            ContactPerson = new DemoContactPerson();
         }
         public void OnGet(int id)
         {
-            PickupPoint = service.GetPickupPoint(id);
+            //PickupPoint = service.GetPickupPoint(id);
+            ContactPerson = CPservice.testGet(id);
         }
+
     }
 }

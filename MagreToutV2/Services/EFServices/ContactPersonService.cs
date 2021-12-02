@@ -39,8 +39,6 @@ namespace MalgreToutV2.Services.EFServices
         public DemoContactPerson GetContactPerson(int id)
         {
             DemoContactPerson contactPerson = context.DemoContactPeople.Include(m => m.PickupPoint).AsNoTracking().FirstOrDefault(m => m.ContactPersonId == id);
-
-
             return contactPerson;
         }
 
