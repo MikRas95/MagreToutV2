@@ -5,33 +5,53 @@
 
 <div class="text-center">
     <h1 class="display-4">Malgré Tout</h1>
+    <h4>Please select a database to view</h4>
 
-    <div class="wrapper">
+    <div class="links">
         <div class="row">
-            <div class="col-sm">
-                <a asp-page="/PickupPoint/Read"><img src="~/imgs/database.png" class="front-img" /></a>
-                <p>Pickup Point</p>
+            <div class="col-sm link1">
+                <a asp-page="/PickupPoint/Read">Database - Pickup Points</a>
             </div>
 
-            <div class="col-sm">
-                <a asp-page="/ContactPerson/Read"><img src="~/imgs/location.png" class="front-img" /></a>
-                <p>Contact Person</p>
+            <div class="col-sm link2">
+                <a asp-page="/ContactPerson/Read">Database - Contact Persons</a>
+            </div>
+
+            <div class="col-sm link3">
+                <a asp-page="/Employee/Read">Database - Employees</a>
+            </div>
+
+            <div class="col-sm link4">
+                <a asp-page="/Magazine/Read">Database - Magazines</a>
             </div>
         </div>
     </div>
 </div>
 
 <style>
-    .front-img {
-        width: 12em;
-        height: auto;
+    .link4:hover {
         transition: ease-in-out 0.2s;
+        opacity: 0.8;
+        font-size: 109%;
     }
-
-        .front-img:hover {
-            opacity: 0.8;
-            filter: blur(1px);
-        }
+    .link3:hover {
+        transition: ease-in-out 0.2s;
+        opacity: 0.8;
+        font-size: 109%;
+    }
+    .link2:hover {
+        transition: ease-in-out 0.2s;
+        opacity: 0.8;
+        font-size: 109%;
+    }
+    .link1:hover {
+        transition: ease-in-out 0.2s;
+        opacity: 0.8;
+        font-size: 109%;
+    }
+    .links {
+        font-weight: bold;
+    }
 
     .col-sm {
         padding: 2em;

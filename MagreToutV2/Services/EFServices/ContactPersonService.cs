@@ -28,7 +28,12 @@ namespace MalgreToutV2.Services.EFServices
             return list.Where(c => (c.Name.ToLower().Contains(name.ToLower())
             || (c.PickupPoint.Name.ToLower().Contains(name.ToLower()))));
         }
-        
+        public IEnumerable<DemoContactPerson> GetContactPeople() {
+            return context.DemoContactPeople.Where(c => c.PickupPointId == c.PickupPoint.PickupPointId)
+                .Include(p => p.PickupPoint)
+                .AsNoTracking();
+
+        }
        
         public void AddContactPerson(DemoContactPerson ContactPerson)
         {
@@ -39,6 +44,12 @@ namespace MalgreToutV2.Services.EFServices
         public DemoContactPerson GetContactPerson(int id)
         {
             DemoContactPerson contactPerson = context.DemoContactPeople.Include(m => m.PickupPoint).AsNoTracking().FirstOrDefault(m => m.ContactPersonId == id);
+
+
+            return contactPerson;
+        }
+        public DemoContactPerson GetPickupPointPerson(int id) {
+            DemoContactPerson contactPerson = context.DemoContactPeople.Include(m => m.PickupPoint).AsNoTracking().FirstOrDefault(m => m.PickupPointId == id);
 
 
             return contactPerson;

@@ -33,18 +33,18 @@
 
         @if (Model.PickupPoints != null)
         {
-            @foreach (var point in Model.PickupPoints)
-            {
-                <tr>
-                    <td>@point.PickupPointId</td>
-                    <td>@point.Name</td>
-                    <td>@point.Address</td>
-                    <td>@point.Country</td>
-                    <td>@point.PostalCode</td>
-                    <td>@point.NoOfMagazine</td>
-                    <td>@point.DemoContactPeople</td> @*erstat når den implementeres*@
-                    @*<td>@point.ContactPersonId</td>*@
-
+            <td>@point.PickupPointId</td>
+            <td>@point.Name</td>
+            <td>@point.Address</td>
+            <td>@point.Country</td>
+            <td>@point.PostalCode</td>
+            <td>@point.NoOfMagazine</td>
+            @if(point.ContactPerson != null) {
+                <td>@point.ContactPerson.Name</td>
+                    }
+            else {
+                        <td>No contact person</td>
+                    }
                     <td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
                     <td><a class="btn btn-outline-secondary" asp-route-id="@point.PickupPointId" asp-page="/PickupPoint/Update">Update</a> </td>
                     <td> <a class="btn btn-outline-danger" asp-page="/PickupPoint/Delete" asp-route-PickupPointId="@point.PickupPointId">Delete</a></td>
