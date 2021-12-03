@@ -28,9 +28,9 @@
             <td>@point.VersionId</td>
             <td>@point.Version</td>
             <td><a class="btn btn-outline-secondary" asp-route-id="@point.VersionId" asp-page="/Magazine/Update">Update</a> </td>
-
+            <td> <a class="btn btn-outline-danger" asp-page="/Magazine/Delete" asp-route-PickupPointId="@point.VersionId">Delete</a></td>
             @*<td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
-        <td> <a class="btn btn-outline-danger" asp-page="/PickupPoint/Delete" asp-route-PickupPointId="@point.PickupPointId">Delete</a></td>*@
+            *@
         </tr>
             }
         }
