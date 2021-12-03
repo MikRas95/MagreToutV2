@@ -12,15 +12,18 @@ namespace MalgreToutV2.Models
     [Table("DemoMagazine")]
     public partial class DemoMagazine
     {
+        public DemoMagazine()
+        {
+            DemoMagAds = new HashSet<DemoMagAd>();
+        }
+
         [Key]
         public int VersionId { get; set; }
         [Required]
         [StringLength(255)]
         public string Version { get; set; }
-        public int? AdId { get; set; }
 
-        [ForeignKey(nameof(AdId))]
-        [InverseProperty(nameof(DemoAd.DemoMagazines))]
-        public virtual DemoAd Ad { get; set; }
+        [InverseProperty(nameof(DemoMagAd.Version))]
+        public virtual ICollection<DemoMagAd> DemoMagAds { get; set; }
     }
 }

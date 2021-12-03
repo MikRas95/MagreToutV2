@@ -1,0 +1,134 @@
+﻿@page
+@model MalgreToutV2.Pages.GoogleMapsModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Map</title>
+
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+        #map {
+            height: 600px;
+            width: 800px;
+            border: solid teal 6px;
+        }
+        
+    </style>
+    <script>
+        
+        
+        // Initialize and add the map
+        function initMap() {
+            // The location
+            var location = { lat: 55.638724, lng: 12.083051 };
+            // The map, centered at Roskilde
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 7,
+                center: location
+
+            });
+            var image = "/imgs/horse-icon-small.png";
+            image.height = 1;
+            image.width = 1;
+            // The marker, positioned at Roskilde
+            var marker = new google.maps.Marker({
+                position: location,
+                title: "Roskilde",
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP,
+                icon: image
+
+            });
+            // Set LatLng and title text for the markers. The first marker (Boynton Pass)
+            // receives the initial focus when tab is pressed. Use arrow keys to
+            // move between markers; press tab again to cycle through the map controls.
+            const shops = [
+                [{ lat: 55.564283, lng: 11.962164 }, "Danmark"],
+                [{ lat: 57.033990, lng: 9.932663 }, "Danmark"],
+                [{ lat: 51.488378, lng: 10.229868 }, "Tyskland"],
+                [{ lat: 56.459409, lng: 13.596138 }, "Sverige"],
+                [{ lat: 54.774611, lng: 9.439237 }, "Tyskland"],
+            ];
+            // Create an info window to share between markers.
+            const infoWindow = new google.maps.InfoWindow();
+            //animation
+            marker.addListener("click", toggleBounce);
+            // Create the markers.
+            shops.forEach(([position, title], i) => {
+                const marker = new google.maps.Marker({
+                    position,
+                    map,
+                    title: `${i + 1}. ${title}`,
+                    label: `${i + 1}`,
+                    optimized: false,
+                    //part of animation
+                    draggable: true,
+                    animation: google.maps.Animation.DROP,
+                    icon: image
+                });
+
+                // Add a click listener for each marker, and set up the info window.
+                marker.addListener("click", () => {
+                    infoWindow.close();
+                    infoWindow.setContent(marker.getTitle());
+                    infoWindow.open(marker.getMap(), marker);
+                });
+            });
+            function toggleBounce() {
+                if (marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+        }
+    </script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD8UK7zMQNSpACW9mL69bPoUT67ZXlYfg&callback=initMap">
+
+    </script>
+</head>
+<body>
+<h2>Google Maps</h2>
+<br />
+<h4>Old Map</h4>
+<div><iframe style="border: solid teal 6px" loading="lazy" src="https://www.google.com/maps/d/u/0/embed?mid=1Dqkw4IL1UUOQmmyEobiD3Xv6tE5Tkk6u" width="800" height="600" data-rocket-lazyload="fitvidscompatible" class="lazyloaded" data-ll-status="loaded"></iframe></div>
+<br />
+<h4>New Map</h4>
+<!--The div element for the map -->
+<div id="map"></div>
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+    @*Insert api key in the link under*@
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDD8UK7zMQNSpACW9mL69bPoUT67ZXlYfg&callback=initMap&libraries=&v=weekly"
+    async
+></script>
+
+<h2>JavaScript Geolocation API</h2>
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+    const x = document.getElementById("demo");
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude + 
+            "<br>Longitude: " + position.coords.longitude;
+    }
+</script>
+</body>
+</html>

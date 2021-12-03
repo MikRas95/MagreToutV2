@@ -14,7 +14,7 @@ namespace MalgreToutV2.Models
     {
         public DemoAd()
         {
-            DemoMagazines = new HashSet<DemoMagazine>();
+            DemoMagAds = new HashSet<DemoMagAd>();
         }
 
         [Key]
@@ -25,7 +25,7 @@ namespace MalgreToutV2.Models
         [Column(TypeName = "decimal(18, 0)")]
         public decimal? AdPrice { get; set; }
 
-        [InverseProperty(nameof(DemoMagazine.Ad))]
-        public virtual ICollection<DemoMagazine> DemoMagazines { get; set; }
+        [InverseProperty(nameof(DemoMagAd.Ad))]
+        public virtual ICollection<DemoMagAd> DemoMagAds { get; set; }
     }
 }
