@@ -14,6 +14,7 @@
             <th>NoOfMagazine</th>
             <th>OpeningTime</th>
             <th>CloseningTime</th>
+            <th>Contact Person</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,12 @@
             <td>@Model.PickupPoint.NoOfMagazine</td>
             <td>@Model.PickupPoint.OpeningTime</td>
             <td>@Model.PickupPoint.CloseningTime</td>
+            @if(@Model.contactPerson != null){
+                <td>@Model.contactPerson.Name</td>
+            }
+            else {
+                <td>No contact person</td>
+            }
         </tr>
 </table>
 <div class="form-group">
