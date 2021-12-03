@@ -21,6 +21,7 @@ namespace MalgreToutV2.Models
         public virtual DbSet<DemoAd> DemoAds { get; set; }
         public virtual DbSet<DemoContactPerson> DemoContactPeople { get; set; }
         public virtual DbSet<DemoEmployee> DemoEmployees { get; set; }
+        public virtual DbSet<DemoMagAd> DemoMagAds { get; set; }
         public virtual DbSet<DemoMagazine> DemoMagazines { get; set; }
         public virtual DbSet<DemoPickupPoint> DemoPickupPoints { get; set; }
 
@@ -29,7 +30,6 @@ namespace MalgreToutV2.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-
                 optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MalgreTout_v2;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
@@ -41,7 +41,7 @@ namespace MalgreToutV2.Models
             modelBuilder.Entity<DemoAd>(entity =>
             {
                 entity.HasKey(e => e.AdId)
-                    .HasName("PK__DemoAd__7130D5AE4CD9C021");
+                    .HasName("PK__DemoAd__7130D5AEA69A4815");
 
                 entity.Property(e => e.Company).IsUnicode(false);
             });
@@ -49,7 +49,7 @@ namespace MalgreToutV2.Models
             modelBuilder.Entity<DemoContactPerson>(entity =>
             {
                 entity.HasKey(e => e.ContactPersonId)
-                    .HasName("PK__DemoCont__97C702BEB904DFEE");
+                    .HasName("PK__DemoCont__97C702BEBD23F3D4");
 
                 entity.Property(e => e.Email).IsUnicode(false);
 
@@ -60,13 +60,13 @@ namespace MalgreToutV2.Models
                 entity.HasOne(d => d.PickupPoint)
                     .WithMany(p => p.DemoContactPeople)
                     .HasForeignKey(d => d.PickupPointId)
-                    .HasConstraintName("FK__DemoConta__Picku__06CD04F7");
+                    .HasConstraintName("FK__DemoConta__Picku__4E88ABD4");
             });
 
             modelBuilder.Entity<DemoEmployee>(entity =>
             {
                 entity.HasKey(e => e.EmployeeId)
-                    .HasName("PK__DemoEmpl__7AD04F11D6CA357D");
+                    .HasName("PK__DemoEmpl__7AD04F111D3DFBA0");
 
                 entity.Property(e => e.Name).IsUnicode(false);
 
@@ -77,23 +77,36 @@ namespace MalgreToutV2.Models
                 entity.Property(e => e.Username).IsUnicode(false);
             });
 
+            modelBuilder.Entity<DemoMagAd>(entity =>
+            {
+                entity.HasKey(e => e.MagAdId)
+                    .HasName("PK__DemoMagA__A5C6C913FD336C9D");
+
+                entity.HasOne(d => d.Ad)
+                    .WithMany(p => p.DemoMagAds)
+                    .HasForeignKey(d => d.AdId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__DemoMagAd__AdId__5812160E");
+
+                entity.HasOne(d => d.Version)
+                    .WithMany(p => p.DemoMagAds)
+                    .HasForeignKey(d => d.VersionId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__DemoMagAd__Versi__571DF1D5");
+            });
+
             modelBuilder.Entity<DemoMagazine>(entity =>
             {
                 entity.HasKey(e => e.VersionId)
-                    .HasName("PK__DemoMaga__16C6400F69AF398C");
+                    .HasName("PK__DemoMaga__16C6400FDAA83CBF");
 
                 entity.Property(e => e.Version).IsUnicode(false);
-
-                entity.HasOne(d => d.Ad)
-                    .WithMany(p => p.DemoMagazines)
-                    .HasForeignKey(d => d.AdId)
-                    .HasConstraintName("FK__DemoMagazi__AdId__0D7A0286");
             });
 
             modelBuilder.Entity<DemoPickupPoint>(entity =>
             {
                 entity.HasKey(e => e.PickupPointId)
-                    .HasName("PK__DemoPick__195D7EA0D33A92D8");
+                    .HasName("PK__DemoPick__195D7EA028B2385C");
 
                 entity.Property(e => e.Address).IsUnicode(false);
 
