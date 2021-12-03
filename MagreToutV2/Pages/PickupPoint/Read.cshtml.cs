@@ -19,14 +19,14 @@ namespace MalgreToutV2.Pages.PickupPoint
         private IPickupPoint PickupPointService;
         private IContactPerson cService;
         public ReadModel(IPickupPoint service, IContactPerson service2)
-        [BindProperty(SupportsGet = true)]
-        public string FilterCriteria { get; set; }
         {
             cService = service2;
             PickupPointService = service;
             PickupPoints = new List<DemoPickupPoint>();
-            ContacPeople = ContacPeople = cService.GetContactPeople(); 
+            ContacPeople = ContacPeople = cService.GetContactPeople();
         }
+        [BindProperty(SupportsGet = true)]
+        public string FilterCriteria { get; set; }
         public void OnGet()
         {
             if (!String.IsNullOrEmpty(FilterCriteria))
