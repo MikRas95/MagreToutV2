@@ -2,28 +2,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MalgreToutV2.Models;
-using MalgreToutV2.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MalgreToutV2.Models;
+using MalgreToutV2.Services.Interface;
 
 namespace MalgreToutV2.Pages.Magazine
 {
-    public class CreateMode : PageModel
+    public class UpdateModel : PageModel
     {
         [BindProperty]
-        public DemoMagazine Magazine { get; set; }
-        public IMagazine service;
-
-
-        public CreateMode(IMagazine Service)
+        public DemoMagazine Magazine { get; set; } = new DemoMagazine();
+        public void OnGet(int id)
         {
-            service = Service;
-            Magazine = new DemoMagazine();
+            Magazine = magazineService.GetMagazine(id);
         }
-        public IActionResult OnGet()
+        IMagazine magazineService;
+        public UpdateModel(IMagazine service)
         {
-            return Page();
+            this.magazineService = service;
         }
         public IActionResult OnPost()
         {
@@ -31,8 +28,7 @@ namespace MalgreToutV2.Pages.Magazine
             {
                 return Page();
             }
-            service.AddMagazine(Magazine);
-
+            magazineService.UpdateMagazine(Magazine);
             return RedirectToPage("/Magazine/Read");
         }
     }
