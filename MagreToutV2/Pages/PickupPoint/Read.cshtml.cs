@@ -14,14 +14,20 @@ namespace MalgreToutV2.Pages.PickupPoint
     {
         [BindProperty]
         public IEnumerable<DemoPickupPoint> PickupPoints { get; set; }
+        [BindProperty]
+        public IEnumerable<DemoContactPerson> ContacPeople { get; set; }
         private IPickupPoint PickupPointService;
-        public ReadModel(IPickupPoint service)
+        private IContactPerson cService;
+        public ReadModel(IPickupPoint service, IContactPerson service2)
         {
+            cService = service2;
             PickupPointService = service;
             PickupPoints = new List<DemoPickupPoint>();
+            ContacPeople = ContacPeople = cService.GetContactPeople(); 
         }
         public IActionResult OnGet()
         {
+            
             PickupPoints = PickupPointService.GetAllPickupPoints();
             return Page();
         }

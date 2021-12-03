@@ -26,7 +26,7 @@ namespace MalgreToutV2.Models
         public int PickupPointId { get; set; }
 
         [ForeignKey(nameof(PickupPointId))]
-        [InverseProperty(nameof(DemoPickupPoint.DemoContactPeople))]
+        [InverseProperty(nameof(DemoPickupPoint.ContactPerson))]
         public virtual DemoPickupPoint PickupPoint { get; set; }
     }
 }

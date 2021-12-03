@@ -33,8 +33,12 @@
             <td>@point.Country</td>
             <td>@point.PostalCode</td>
             <td>@point.NoOfMagazine</td>
-            <td>@point.DemoContactPeople</td> @*erstat når den implementeres*@
-            @*<td>@point.ContactPersonId</td>*@
+            @if(point.ContactPerson != null) {
+                <td>@point.ContactPerson.Name</td>
+                    }
+            else {
+                        <td>No contact person</td>
+                    }
 
             <td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
             <td><a class="btn btn-outline-secondary" asp-route-id="@point.PickupPointId" asp-page="/PickupPoint/Update">Update</a> </td>

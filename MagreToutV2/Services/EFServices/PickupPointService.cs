@@ -25,7 +25,7 @@ namespace MalgreToutV2.Services.EFServices
         public DemoPickupPoint GetPickupPoint(int id)
         {
             DemoPickupPoint pickupPoint = context.Set<DemoPickupPoint>()
-                .Include(m => m.DemoContactPeople)
+                .Include(m => m.ContactPerson)
                 .AsNoTracking()
                 .FirstOrDefault(m => m.PickupPointId == id);
             return pickupPoint;
@@ -46,7 +46,7 @@ namespace MalgreToutV2.Services.EFServices
 
         public IEnumerable<DemoPickupPoint> GetAllPickupPoints()
         {
-            return context.DemoPickupPoints;
+            return context.DemoPickupPoints.Include(c => c.ContactPerson);
         }
 
 

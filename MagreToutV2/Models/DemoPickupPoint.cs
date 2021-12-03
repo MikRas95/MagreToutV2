@@ -12,11 +12,6 @@ namespace MalgreToutV2.Models
     [Table("DemoPickupPoint")]
     public partial class DemoPickupPoint
     {
-        public DemoPickupPoint()
-        {
-            DemoContactPeople = new HashSet<DemoContactPerson>();
-        }
-
         [Key]
         public int PickupPointId { get; set; }
         [Required]
@@ -39,6 +34,6 @@ namespace MalgreToutV2.Models
         public TimeSpan? CloseningTime { get; set; }
 
         [InverseProperty(nameof(DemoContactPerson.PickupPoint))]
-        public virtual ICollection<DemoContactPerson> DemoContactPeople { get; set; }
+        public virtual DemoContactPerson ContactPerson { get; set; }
     }
 }

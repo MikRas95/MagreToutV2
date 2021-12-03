@@ -60,10 +60,10 @@ namespace MalgreToutV2.Models
 
                 entity.Property(e => e.PhoneNumber).IsUnicode(false);
 
-                entity.HasOne(d => d.PickupPoint)
-                    .WithMany(p => p.DemoContactPeople)
-                    .HasForeignKey(d => d.PickupPointId)
-                    .HasConstraintName("FK__DemoConta__Picku__06CD04F7");
+                //entity.HasOne(d => d.PickupPoint)
+                //    .WithMany(p => p.ContactPerson)
+                //    .HasForeignKey(d => d.PickupPointId)
+                //    .HasConstraintName("FK__DemoConta__Picku__06CD04F7");
             });
 
             modelBuilder.Entity<DemoEmployee>(entity =>
