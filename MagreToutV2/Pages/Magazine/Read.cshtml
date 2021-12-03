@@ -1,0 +1,37 @@
+﻿@page
+@model MalgreToutV2.Pages.Magazine.ReadModel
+@{
+    ViewData["Title"] = "GetMagazines";
+}
+<h2>List of Magazines</h2>
+<br />
+<a class="btn btn-outline-primary" asp-page="/Create">Create</a>
+<br />
+<br />
+
+<table class="table table-bordered table-responsive-sm table-hover">
+    <thead style="background:lightgray">
+        <tr>
+            <th>Id</th>
+            <th>Version</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.magazines != null)
+        {
+            @foreach (var point in Model.magazines)
+            {
+                <tr>
+                    <td>@point.VersionId</td>
+                    <td>@point.Version</td>
+                    @*<td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
+                    <td><a class="btn btn-outline-secondary" asp-route-id="@point.PickupPointId" asp-page="/PickupPoint/Update">Update</a> </td>
+                    <td> <a class="btn btn-outline-danger" asp-page="/PickupPoint/Delete" asp-route-PickupPointId="@point.PickupPointId">Delete</a></td>*@
+                </tr>
+            }
+        }
+    </tbody>
+</table>
