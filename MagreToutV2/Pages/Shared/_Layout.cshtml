@@ -47,10 +47,12 @@
     </header>
 
     <div class="navigation">
-        <a href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
+        <a asp-area="" asp-page="/Index">Home</a>
+        <a asp-area="" asp-page="/PickupPoint/Read">Pickup Points</a>
+        <a asp-area="" asp-page="/ContactPerson/Read">Pickup Persons</a>
+        <a asp-area="" asp-page="/Employee/Read">Employees</a>
+        <a asp-area="" asp-page="/GoogleMaps">Google Maps</a>
+        <a asp-area="" asp-page="/Privacy">Privacy</a>
     </div>
 
     <div class="container-body">
@@ -60,9 +62,9 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container-footer">
+        @*<div class="container-footer">
             &copy; 2021 - MalgréTout - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
+        </div>*@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
