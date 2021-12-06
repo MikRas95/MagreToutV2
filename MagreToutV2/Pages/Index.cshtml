@@ -10,26 +10,26 @@
     <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
 </head>
 <h1>Dashboard</h1>
-<p>Velkommen!</p>
+<h4>Velkommen!</h4>
 <div class="text-center">
     <div class="wrapper">
         <div class="row">
                 <div class="col-sm">
-                    <h4>Pickup Points</h4>
-                    <a asp-page="/ChooseDatabase">
+                    <h5>Pickup Points</h5>
+                    <a asp-page="/PickupPoint/Read">
                         <img src="~/imgs/database.png" style="height: 150px; width: auto; object-fit:contain;" class="index-pics" />
                     </a>
                 </div>
 
                 <div class="col-sm">
-                    <h4>Pickup Persons</h4>
+                    <h5>Pickup Persons</h5>
                     <a asp-page="/ContactPerson/Read">
                         <img src="~/imgs/location2.png" style="height: 150px; width: auto; object-fit:contain;" class="index-pics" />
                     </a>
                 </div>
 
                 <div class="col-sm">
-                    <h4>Employees</h4>
+                    <h5>Employees</h5>
                     <a asp-page="/Employee/Read">
                         <img src="~/imgs/employee.png" style="height: 150px; width: auto; object-fit:contain;" class="index-pics" />
                     </a>
@@ -39,11 +39,13 @@
         <div class="row">
             <div class="col">
                 <div class="canvas-container">
+                    <h5>En chart der ser fed ud</h5>
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
 
             <div class="col">
+                <h5>Reklame indtægter</h5>
                 <a asp-page="/Magazine/Read">
                     @Html.Raw(Model.ChartJson)
                 </a>
@@ -65,30 +67,35 @@
 <style>
 .canvas-container {
     width: 400px;
-    height: 400px;
+    height: auto;
     padding: 0;
     margin: auto;
     display: block;
 }
 
 .col-sm {
-    margin: 1em;
+    margin: 0.5em;
     height: auto;
     padding: 10px;
-    background: #FEFEFA;
+    background: #FFFFFF;
     border-radius: 3px;
     box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(0, 0, 0, 0.19);
     transition: ease-in-out 0.2s;
 }
 
 .col {
-    margin: 1em;
-    background: #FEFEFA;
+    margin: 0.5em;
+    background: #FFFFFF;
     border-radius: 3px;
     height: auto;
     padding: 10px;
     box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(0, 0, 0, 0.19);
     transition: ease-in-out 0.2s;
+}
+
+.wrapper {
+    margin-left:0.5em;
+    margin-right:0.5em;
 }
 
 .col-sm:hover, .col:hover {
