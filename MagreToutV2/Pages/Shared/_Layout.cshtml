@@ -15,48 +15,28 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark box-shadow mb-3">
-            <div class="container">
-               <a class="navbar-brand" asp-area="" asp-page="/Index"><img src="/imgs/malgre_tout_logo-300x116-1.webp" alt="Malgré Tout" height="50" /></a> 
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SELECT DATABASE</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdown03">
-                                <a class="dropdown-item" asp-area="" asp-page="/PickupPoint/Read">Pickup Points</a>
-                                <a class="dropdown-item" asp-area="" asp-page="/ContactPerson/Read">Pickup Persons</a>
-                                <a class="dropdown-item" asp-area="" asp-page="/Employee/Read">Employees</a>
-                                <a class="dropdown-item" asp-area="" asp-page="/Magazine/Read">Magazines</a>
-                            </div>
-
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/GoogleMaps">Google Maps</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Privacy" style="position: relative; left: 600px;">Privacy</a>
-                        </li>                       
-                    </ul>
-                </div>
-            </div>
-        </nav>
     </header>
-    <div class="container">
+
+    <div class="navigation">
+        <a><h3 style="color: #f1f1f1; ">Malgre Tout</h3></a>
+        <a asp-area="" asp-page="/Index">Home</a>
+        <a asp-area="" asp-page="/PickupPoint/Read">Pickup Points</a>
+        <a asp-area="" asp-page="/ContactPerson/Read">Pickup Persons</a>
+        <a asp-area="" asp-page="/Employee/Read">Employees</a>
+        <a asp-area="" asp-page="/GoogleMaps">Google Maps</a>
+        <a asp-area="" asp-page="/Privacy">Privacy</a>
+    </div>
+
+    <div class="container-body">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        @*<div class="container-footer">
             &copy; 2021 - MalgréTout - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
+        </div>*@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -66,3 +46,59 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+<style>
+body {
+  margin: 0;
+}
+
+/*a {
+    transition: ease-in-out 0.2s;
+}*/
+
+.navigation {
+    margin: 0;
+    padding: 0;
+    width: 300px;
+    background-color: #06191D;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+    .navigation a {
+        display: block;
+        color: #f1f1f1;
+        padding: 16px;
+        text-decoration: none;
+    }
+
+a:hover {
+    color: #808080;
+}
+
+div.container-body {
+    margin-left: 300px;
+    padding: 10px 16px;
+}
+@@media screen and (max-width: 1000px) {
+    .navigation {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+    .navigation a {
+        float: left;
+    }
+    div.container-body {
+        margin-left: 0;
+    }
+}
+
+@@media screen and (max-width: 400px) {
+    .navigation a {
+        text-align: center;
+        float: none;
+    }
+}
+</style>
