@@ -14,20 +14,26 @@
 <div class="text-center">
     <div class="wrapper">
         <div class="row">
-            <div class="col-sm">
-                <h4>Pickup Points</h4>
-                <a asp-page="/ChooseDatabase"><img src="~/imgs/database.png" style="height: 150px; width: auto; object-fit:contain;" /></a>
-            </div>
+                <div class="col-sm">
+                    <h4>Pickup Points</h4>
+                    <a asp-page="/ChooseDatabase">
+                        <img src="~/imgs/database.png" style="height: 150px; width: auto; object-fit:contain;" class="index-pics" />
+                    </a>
+                </div>
 
-            <div class="col-sm">
-                <h4>Pickup Persons</h4>
-                <a asp-page="/ContactPerson/Read"><img src="~/imgs/location.png" style="height: 150px; width: auto; object-fit:contain;" /></a>
-            </div>
+                <div class="col-sm">
+                    <h4>Pickup Persons</h4>
+                    <a asp-page="/ContactPerson/Read">
+                        <img src="~/imgs/location2.png" style="height: 150px; width: auto; object-fit:contain;" class="index-pics" />
+                    </a>
+                </div>
 
-            <div class="col-sm">
-                <h4>Employees</h4>
-                <a asp-page="/Employee/Read"><img src="~/imgs/employee.png" style="height: 150px; width: auto; object-fit:contain;" /></a>
-            </div>
+                <div class="col-sm">
+                    <h4>Employees</h4>
+                    <a asp-page="/Employee/Read">
+                        <img src="~/imgs/employee.png" style="height: 150px; width: auto; object-fit:contain;" class="index-pics" />
+                    </a>
+                </div>
         </div>
 
         <div class="row">
@@ -46,18 +52,17 @@
 
         <div class="row">
             <div class="col">
-                <div class="iframe-container"><iframe loading="lazy" src="https://www.google.com/maps/d/u/0/embed?mid=1Dqkw4IL1UUOQmmyEobiD3Xv6tE5Tkk6u" width="800" height="600" data-rocket-lazyload="fitvidscompatible" class="lazyloaded" data-ll-status="loaded" seamless></iframe></div>
+                <div class="iframe-container"><iframe loading="lazy" src="https://www.google.com/maps/d/u/0/embed?mid=1Dqkw4IL1UUOQmmyEobiD3Xv6tE5Tkk6u" width="800" height="600" data-rocket-lazyload="fitvidscompatible" class="lazyloaded" data-ll-status="loaded" ></iframe></div>
             </div>
             <div class="col">
-                <h4>Noget sindssygt fedt her</h4>
-                <p>Yea baby</p>
+                <a class="twitter-timeline" data-height="600" href="https://twitter.com/HorsesMedia?ref_src=twsrc%5Etfw">Tweets by HorsesMedia</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
         </div>
     </div>
 </div>
 
 <style>
-
 .canvas-container {
     width: 400px;
     height: 400px;
@@ -73,6 +78,7 @@
     background: #FEFEFA;
     border-radius: 3px;
     box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(0, 0, 0, 0.19);
+    transition: ease-in-out 0.2s;
 }
 
 .col {
@@ -82,6 +88,11 @@
     height: auto;
     padding: 10px;
     box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(0, 0, 0, 0.19);
+    transition: ease-in-out 0.2s;
+}
+
+.col-sm:hover, .col:hover {
+    transform: scale(1.02);
 }
 
 .iframe-container {
