@@ -4,6 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
 
     <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
@@ -31,13 +32,45 @@
 
         <div class="row">
             
-                <div class="col">
-                    <h4>Announces</h4>
-                    <a asp-page="/Magazine/Read">
-                        @Html.Raw(Model.ChartJson)
-                    </a>
-                </div>
-            
+            <div class="col">
+                <h4>Announces</h4>
+                <a asp-page="/Magazine/Read">
+                    @Html.Raw(Model.ChartJson)
+                </a>
+            </div>
+            <div class="col">
+                <canvas id="myChart"></canvas>
+                <script>
+                    const data = {
+                        labels: [
+                            'Red',
+                            'Blue',
+                            'Yellow'
+                        ],
+                        datasets: [{
+                            label: 'My First Dataset',
+                            data: [300, 50, 100],
+                            backgroundColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(54, 162, 235)',
+                                'rgb(255, 205, 86)'
+                            ],
+                            hoverOffset: 4
+                        }]
+                    };
+
+                    const config = {
+                        type: 'doughnut',
+                        data: data,
+                    };
+                    // === include 'setup' then 'config' above ===
+
+                    const myChart = new Chart(
+                        document.getElementById('myChart'),
+                        config
+                    );
+                </script>
+            </div>
         </div>
 
         <div class="row">
