@@ -3,7 +3,11 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<head>
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
 
+    <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+</head>
 <h1>Dashboard</h1>
 <div class="text-center">
     <div class="wrapper">
@@ -25,6 +29,7 @@
 
             <div class="col-sm">
                 <h4>Magazines</h4>
+                @Html.Raw(Model.ChartJson)
             </div>
         </div>
 

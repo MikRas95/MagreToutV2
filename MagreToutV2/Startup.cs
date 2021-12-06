@@ -32,6 +32,7 @@ namespace MalgreToutV2
             services.AddTransient<IPickupPoint, PickupPointService>();
             services.AddTransient<IEmployee, EmployeeService>();
             services.AddTransient<IMagazine, MagazineService>();
+            services.AddTransient<ILogin, LoginService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
