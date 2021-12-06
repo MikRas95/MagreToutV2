@@ -5,7 +5,7 @@
 }
 <h2>List of Magazines</h2>
 <br />
-<a class="btn btn-outline-primary" asp-page="/Create">Create</a>
+<a class="btn btn-outline-primary" asp-page="/Magazine/Create">Create</a>
 <br />
 <br />
 
@@ -24,13 +24,14 @@
         {
             @foreach (var point in Model.magazines)
             {
-                <tr>
-                    <td>@point.VersionId</td>
-                    <td>@point.Version</td>
-                    @*<td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
-                    <td><a class="btn btn-outline-secondary" asp-route-id="@point.PickupPointId" asp-page="/PickupPoint/Update">Update</a> </td>
-                    <td> <a class="btn btn-outline-danger" asp-page="/PickupPoint/Delete" asp-route-PickupPointId="@point.PickupPointId">Delete</a></td>*@
-                </tr>
+        <tr>
+            <td>@point.VersionId</td>
+            <td>@point.Version</td>
+            <td><a class="btn btn-outline-secondary" asp-route-id="@point.VersionId" asp-page="/Magazine/Update">Update</a> </td>
+            <td> <a class="btn btn-outline-danger" asp-page="/Magazine/Delete" asp-route-PickupPointId="@point.VersionId">Delete</a></td>
+            @*<td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
+            *@
+        </tr>
             }
         }
     </tbody>
