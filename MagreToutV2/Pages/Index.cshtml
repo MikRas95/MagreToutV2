@@ -31,45 +31,16 @@
         </div>
 
         <div class="row">
-            
             <div class="col">
-                <h4>Announces</h4>
+                <div class="canvas-container">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+
+            <div class="col">
                 <a asp-page="/Magazine/Read">
                     @Html.Raw(Model.ChartJson)
                 </a>
-            </div>
-            <div class="col">
-                <canvas id="myChart"></canvas>
-                <script>
-                    const data = {
-                        labels: [
-                            'Red',
-                            'Blue',
-                            'Yellow'
-                        ],
-                        datasets: [{
-                            label: 'My First Dataset',
-                            data: [300, 50, 100],
-                            backgroundColor: [
-                                'rgb(255, 99, 132)',
-                                'rgb(54, 162, 235)',
-                                'rgb(255, 205, 86)'
-                            ],
-                            hoverOffset: 4
-                        }]
-                    };
-
-                    const config = {
-                        type: 'doughnut',
-                        data: data,
-                    };
-                    // === include 'setup' then 'config' above ===
-
-                    const myChart = new Chart(
-                        document.getElementById('myChart'),
-                        config
-                    );
-                </script>
             </div>
         </div>
 
@@ -78,7 +49,8 @@
                 <div class="iframe-container"><iframe loading="lazy" src="https://www.google.com/maps/d/u/0/embed?mid=1Dqkw4IL1UUOQmmyEobiD3Xv6tE5Tkk6u" width="800" height="600" data-rocket-lazyload="fitvidscompatible" class="lazyloaded" data-ll-status="loaded" seamless></iframe></div>
             </div>
             <div class="col">
-                <h4>Something Cool</h4>
+                <h4>Noget sindssygt fedt her</h4>
+                <p>Yea baby</p>
             </div>
         </div>
     </div>
@@ -86,9 +58,17 @@
 
 <style>
 
+.canvas-container {
+    width: 400px;
+    height: 400px;
+    padding: 0;
+    margin: auto;
+    display: block;
+}
+
 .col-sm {
     margin: 1em;
-    height: 30vh;
+    height: auto;
     padding: 10px;
     background: #FEFEFA;
     border-radius: 3px;
@@ -120,9 +100,39 @@
     padding-bottom: 1rem;
 }
 
-@@media only screen and (max-width: 1200px) {
-    .front-img {
-        width: 10em;
+/*@@media only screen and (max-width: 1200px) {
+    .col-sm {
+        height:auto;
     }
-}
+}*/
 </style>
+<script>
+    const data = {
+        labels: [
+            'Danmark',
+            'Tyskland',
+            'Sverige'
+        ],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [300, 50, 100],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    const config = {
+        type: 'doughnut',
+        data: data,
+    };
+    // === include 'setup' then 'config' above ===
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+</script>
