@@ -14,36 +14,39 @@
         <div class="row">
             <div class="col-sm">
                 <h4>Pickup Points</h4>
-                <img src="~/imgs/database.png" style="height: 150px; width: auto; object-fit:contain;"/>
+                <a asp-page="/ChooseDatabase"><img src="~/imgs/database.png" style="height: 150px; width: auto; object-fit:contain;" /></a>
             </div>
 
             <div class="col-sm">
                 <h4>Pickup Persons</h4>
-                <img src="~/imgs/location.png" style="height: 150px; width: auto; object-fit:contain;" />
+                <a asp-page="/ContactPerson/Read"><img src="~/imgs/location.png" style="height: 150px; width: auto; object-fit:contain;" /></a>
             </div>
 
             <div class="col-sm">
                 <h4>Employees</h4>
-                <img src="~/imgs/employee.png" style="height: 150px; width: auto; object-fit:contain;" />
+                <a asp-page="/Employee/Read"><img src="~/imgs/employee.png" style="height: 150px; width: auto; object-fit:contain;" /></a>
             </div>
         </div>
 
         <div class="row">
-            <div class="col">
-                <h4>Heyyyy</h4>
-            </div>
-            <div class="col">
-                <h4>Magazines</h4>
-                @Html.Raw(Model.ChartJson)
-            </div>
+            
+                <div class="col">
+                    <h4>Announces</h4>
+                    <a asp-page="/Magazine/Read">
+                        @Html.Raw(Model.ChartJson)
+                    </a>
+                </div>
+            
         </div>
 
         <div class="row">
             <div class="col">
                 <iframe loading="lazy" src="https://www.google.com/maps/d/u/0/embed?mid=1Dqkw4IL1UUOQmmyEobiD3Xv6tE5Tkk6u" width="800" height="600" data-rocket-lazyload="fitvidscompatible" class="lazyloaded" data-ll-status="loaded" seamless></iframe>
+            <a asp-page="/GoogleMaps"><em class="btn btn-outline-info">See more</em></a>
+
             </div>
             <div class="col">
-                <h4>Noget andet</h4>
+                <h4>Something Cool</h4>
             </div>
         </div>
     </div>
