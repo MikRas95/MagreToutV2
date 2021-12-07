@@ -35,5 +35,14 @@ namespace MalgreToutV2.Models
 
         [InverseProperty(nameof(DemoContactPerson.PickupPoint))]
         public virtual DemoContactPerson ContactPerson { get; set; }
+
+        public override bool Equals(object o) {
+            if (!(o is DemoPickupPoint)) { return false; }
+            return ((DemoPickupPoint)o).PickupPointId == this.PickupPointId;
+        }
+
+        public override int GetHashCode() {
+            return this.PickupPointId;
+        }
     }
 }

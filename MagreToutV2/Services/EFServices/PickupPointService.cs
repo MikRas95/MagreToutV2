@@ -46,7 +46,7 @@ namespace MalgreToutV2.Services.EFServices
 
         public IEnumerable<DemoPickupPoint> GetAllPickupPoints()
         {
-            return context.DemoPickupPoints.Include(c => c.ContactPerson);
+            return context.DemoPickupPoints.Include(c => c.ContactPerson).AsNoTracking();
         }
 
 

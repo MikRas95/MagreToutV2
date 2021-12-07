@@ -16,12 +16,11 @@ namespace MalgreToutV2.Services.EFServices.Tests {
         static IPickupPoint pService = new PickupPointService(context);
         
         [TestMethod()]
-        public void TestPickupCRUD() {
-
+        public void AddPickupPoint() {
             //Får alle vores pickupPoints
             IEnumerable<DemoPickupPoint> pickupPoints = pService.GetAllPickupPoints();
 
-            //Laver testpoint
+            //Arrange
             DemoPickupPoint newPickupPoint = new DemoPickupPoint() {
 
                 Name = "TestName",
@@ -33,88 +32,56 @@ namespace MalgreToutV2.Services.EFServices.Tests {
                 OpeningTime = new TimeSpan(10, 0, 0),
                 CloseningTime = new TimeSpan(17, 0, 0),
                 ContactPerson = null
-            };
+            }; 
 
-
-            ////Tæller liste
             int numberOfPickupPoints = pickupPoints.Count<DemoPickupPoint>();
 
-            ////Tester Add
-            //pService.AddPickupPoint(newPickupPoint);
-
-            ////Assert
-
+            //Act
+            pService.AddPickupPoint(newPickupPoint);
+            
+            //Assert
             DemoPickupPoint newPickupPointTest = pService.GetPickupPoint(newPickupPoint.PickupPointId);
+            Assert.AreEqual(newPickupPoint, newPickupPointTest, "Testing AddPickupPoint failed");
+            Assert.AreEqual(numberOfPickupPoints + 1, pickupPoints.Count<DemoPickupPoint>(), "Testing AddPickupPoint failed regarding number of objects in list");
+        }
 
-            ////Assert.AreEqual(newPickupPoint, newPickupPointTest, "Testing AddPickupPoint failed");
-            ////Assert.AreEqual(numberOfPickupPoints + 1, pickupPoints.Count<DemoPickupPoint>(), "Testing AddPickupPoint failed regarding number of objects in list");
+        [TestMethod()]
+        public void UpdateTest() {
 
+            //Vi bruger denne function da vi ellers får problemer med tracking i databasen
+            context.ChangeTracker.Clear();
 
-            ////Tester Update
-            //DemoPickupPoint toBeUpdated = pService.GetPickupPoint(newPickupPoint.PickupPointId);
+            //Arrange
+            IEnumerable<DemoPickupPoint> pickupPoints1 = pService.GetAllPickupPoints();
+            int numberOfPickupPoints = pickupPoints1.Count<DemoPickupPoint>();
+            int id = pickupPoints1.Max<DemoPickupPoint>(p => p.PickupPointId);
+            DemoPickupPoint pickupPoint1 = pService.GetPickupPoint(id);
+            pickupPoint1.Name = "Testnavnnytnytnyt";
 
-            ////Opsætning
-            //toBeUpdated.Name = "Nytnavn";
-            //pService.Update(toBeUpdated);
-
-            ////Assert
-            //Assert.AreEqual("Nytnavn", toBeUpdated.Name, "Testing update failed");
-
-
-
-
-
-            //Tester Delete
-
-            //Opsætning
-            DemoPickupPoint pickupPointToBeDeleted = pService.GetPickupPoint(newPickupPoint.PickupPointId);
-
-            //Sletter
-            pService.DeletePickupPoint(newPickupPoint);
+            //Act
+            pService.Update(pickupPoint1);
 
             //Assert
-            DemoPickupPoint deletedPickupPoint = pService.GetPickupPoint(10);
-            Assert.IsNull(deletedPickupPoint, "Testing Delete failed");
-            Assert.AreEqual(numberOfPickupPoints, pickupPoints.Count<DemoPickupPoint>(), "Testing Delete failed regarding number of objects in list");
-
+            Assert.AreEqual("Testnavnnytnytnyt", pickupPoint1.Name, "Testing update failed");
         }
-        //public void PickupPointServiceTest() {
-        //    Assert.Fail();
-        //}
 
-        //[TestMethod()]
-        //public void UpdateTest() {
-        //    Assert.Fail();
-        //}
+        [TestMethod()]
+        public void DeletePickupPointTest() {
+            //Tester Delete
 
-        //[TestMethod()]
-        //public void GetPickupPointTest() {
-        //    Assert.Fail();
-        //}
+            //Arrange
+            IEnumerable<DemoPickupPoint> pickupPoints = pService.GetAllPickupPoints();
+            int numberOfPickupPoints = pickupPoints.Count<DemoPickupPoint>();
+            int id = pickupPoints.Max<DemoPickupPoint>(p => p.PickupPointId);
+            DemoPickupPoint pickupPointToBeDeleted = pService.GetPickupPoint(id);
 
-        //[TestMethod()]
-        //public void AddPickupPointTest() {
-        //    Assert.Fail();
-        //}
+            //Act
+            pService.DeletePickupPoint(pickupPointToBeDeleted);
 
-        //[TestMethod()]
-        //public void DeletePickupPointTest() {
-        //    Assert.Fail();
-        //}
-
-        //[TestMethod()]
-        //public void GetAllPickupPointsTest() {
-        //    Assert.Fail();
-        //}
-
-        //[TestMethod()]
-        //public void GetPickupPointByIdTest() {
-        //    Assert.Fail();
-        //}
-
-        //[TestMethod()]
-        //public void GetPickupPointsTest() {
-        //    Assert.Fail();
-        //}
+            //Assert
+            DemoPickupPoint deletedPickupPoint = pService.GetPickupPoint(pickupPointToBeDeleted.PickupPointId);
+            Assert.IsNull(deletedPickupPoint, "Testing Delete failed");
+            Assert.AreEqual(numberOfPickupPoints -1, pickupPoints.Count<DemoPickupPoint>(), "Testing Delete failed regarding number of objects in list");
+        }
     }
 }
