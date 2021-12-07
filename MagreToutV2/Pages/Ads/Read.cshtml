@@ -5,7 +5,7 @@
 }
 <h2>List of Ads</h2>
 <br />
-<a class="btn btn-outline-primary" asp-page="/Ads/Create">Create</a>
+<a class="btn btn-outline-primary" asp-page="/Ads/Create">Create</a> <em>|</em> <a class="btn btn-outline-secondary" asp-page="/Magazine/Read">Back to Magazines</a>
 <br />
 <br />
 
@@ -26,7 +26,7 @@
             {
                 <tr>
                     <td>@point.Company</td>
-                    <td>@point.AdPrice</td>
+                    <td>@point.AdPrice kr.</td>
                     <td><a class="btn btn-outline-secondary" asp-route-id="@point.AdId" asp-page="/Ads/Update">Update</a> </td>
                     <td> <a class="btn btn-outline-danger" asp-page="/Magazine/Delete" asp-route-PickupPointId="@point.AdId">Delete</a></td>
                 </tr>
