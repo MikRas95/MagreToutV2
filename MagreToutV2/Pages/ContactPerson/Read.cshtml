@@ -3,18 +3,20 @@
 @{
     ViewData["Title"] = "GetContactPersons";
 }
-<h2>List of Pickup persons</h2>
-<br/>
-<a class="btn btn-outline-primary" asp-page="/ContactPerson/Create">Create</a>
-<br/>
-<br/>
+<h2><i class="fas fa-people-carry"></i> List of Pickup persons</h2>
+<a asp-page="/Index">Tilbage til Dashboard</a>
+<br />
+<br />
 <form>
     <p>
-        Search: <input type="text" asp-for="FilterCriteria"/>
+        Search: <input type="text" asp-for="FilterCriteria" />
         <input type="submit" value="Filter" />
         <a asp-page="Read">Back to Full List </a>
     </p>
 </form>
+<a class="btn btn-outline-primary" asp-page="/ContactPerson/Create">Create</a>
+<br />
+<br />
 <table class="table table-bordered table-responsive-sm table-hover">
     <thead style="background: lightgray;">
         <tr style="background: lightgray;">
@@ -26,36 +28,38 @@
             <th></th>
             <th></th>
             <th></th>
-            
+
         </tr>
     </thead>
     <tbody>
 
 
-        @if (Model.PickupPeople != null) {
-            @foreach (var person in Model.PickupPeople) {
-        <tr>
-            <td>@person.ContactPersonId</td>
-            <td>@person.Name</td>
-            <td>@person.PhoneNumber</td>
-            <td>@person.Email</td>
-            <td>@person.PickupPoint.Name</td>
-            
-            
-            <td>
-
-                <a class="btn btn-outline-secondary" asp-page="/ContactPerson/PersonInfo" asp-route-id="@person.ContactPersonId">Info</a>
-            </td>
-            <td>
-                <a class="btn btn-outline-danger" asp-page="/ContactPerson/Delete" asp-route-ContactPersonId="@person.ContactPersonId">Delete</a>
-            </td>
-            <td>
-                <a class="btn btn-outline-secondary" asp-page="/ContactPerson/Update" asp-route-ContactPersonId="@person.ContactPersonId">Update</a>
-
-            </td>
+        @if (Model.PickupPeople != null)
+        {
+            @foreach (var person in Model.PickupPeople)
+            {
+                <tr>
+                    <td>@person.ContactPersonId</td>
+                    <td>@person.Name</td>
+                    <td>@person.PhoneNumber</td>
+                    <td>@person.Email</td>
+                    <td>@person.PickupPoint.Name</td>
 
 
-        </tr>
+                    <td>
+
+                        <a class="btn btn-outline-secondary" asp-page="/ContactPerson/PersonInfo" asp-route-id="@person.ContactPersonId">Info</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-danger" asp-page="/ContactPerson/Delete" asp-route-ContactPersonId="@person.ContactPersonId">Delete</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-outline-secondary" asp-page="/ContactPerson/Update" asp-route-ContactPersonId="@person.ContactPersonId">Update</a>
+
+                    </td>
+
+
+                </tr>
 
             }}
     </tbody>
