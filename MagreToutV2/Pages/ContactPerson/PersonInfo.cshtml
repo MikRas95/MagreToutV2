@@ -2,25 +2,54 @@
 @model MalgreToutV2.Pages.ContactPerson.PersonInfoModel
 @{
 }
-<table class="table">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Phone number</th>
-            <th>Email</th>
-            <th>Pickup Point</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model.ContactPerson.ContactPersonId</td>
-            <td>@Model.ContactPerson.Name</td>
-            <td>@Model.ContactPerson.PhoneNumber</td>
-            <td>@Model.ContactPerson.Email</td>
-            <td>@Model.ContactPerson.PickupPoint.Name</td>
-        </tr>
-</table>
-<div class="form-group">
-    <a asp-page="/ContactPerson/Read">Back to List</a>
+<h1>@Model.ContactPerson.Name</h1>
+<div class="row">
+    <div class="col-sm-4">
+        <div><img src="~/imgs/employee.png" style="height: 350px; width: 100%; object-fit: contain;" /></div>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <table>
+                <tr>
+                    <td><strong>Name:</strong></td>
+                    <td>@Model.ContactPerson.Name</td>
+                </tr>
+                <tr>
+                    <td><strong>Contact Person:</strong></td>
+                    <td>@Model.ContactPerson.ContactPersonId</td>
+                </tr>
+                <tr>
+                    <td><strong>Pickup Point:</strong></td>
+                    <td>@Model.ContactPerson.PickupPoint.Name</td>
+                </tr>
+                <tr>
+                    <td><strong>Phonenumber:</strong></td>
+                    <td>@Model.ContactPerson.PhoneNumber</td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong></td>
+                    <td>@Model.ContactPerson.Email</td>
+                </tr>
+                <tr>
+                    <td><a asp-page="/ContactPerson/Read">Tilbage</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        text-align: left;
+        padding: 8px;
+    }
+
+    h1 {
+        margin-bottom: 1em;
+    }
+</style>
