@@ -1,4 +1,31 @@
 ﻿@page
 @model MalgreToutV2.Pages.Ads.CreateModel
 @{
+    ViewData["Title"] = "Create";
 }
+<h3>Create new Ad</h3>
+<br/>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="  ModelOnly  " class="text-danger">
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Ad.Company" class="control-label"></label>
+                <input asp-for="@Model.Ad.Company" class="form-control" />
+                <span asp-validation-for="@Model.Ad.Company" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Ad.AdPrice" class="control-label"></label>
+                <input asp-for="@Model.Ad.AdPrice" class="form-control" />
+                <span asp-validation-for="@Model.Ad.AdPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            <div>
+                <a class="btn btn-outline-secondary" asp-page="/Ads/Read">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
