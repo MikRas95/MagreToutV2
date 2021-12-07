@@ -3,9 +3,9 @@
 @{
     ViewData["Title"] = "GetMagazines";
 }
-<h2>List of Magazines</h2>
+<h2>List of Ads</h2>
 <br />
-<a class="btn btn-outline-primary" asp-page="/Magazine/Create">Create</a>
+<a class="btn btn-outline-primary" asp-page="/Ads/Create">Create</a>
 <br />
 <br />
 
@@ -14,7 +14,6 @@
         <tr>
             <th>Pris</th>
             <th>Firma</th>
-            <th></th>
             <th></th>
             <th></th>
         </tr>
@@ -26,9 +25,8 @@
             @foreach (var point in Model.ads)
             {
                 <tr>
-                    <td>@point.AdPrice</td>
                     <td>@point.Company</td>
-                    <td><a class="btn btn-outline-info" asp-page="/Ads/Read">View Ads</a> </td>
+                    <td>@point.AdPrice</td>
                     <td><a class="btn btn-outline-secondary" asp-route-id="@point.AdId" asp-page="/Ads/Update">Update</a> </td>
                     <td> <a class="btn btn-outline-danger" asp-page="/Magazine/Delete" asp-route-PickupPointId="@point.AdId">Delete</a></td>
                     @*<td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
