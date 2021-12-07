@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31911.196
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MalgreToutV2", "MagreToutV2\MalgreToutV2.csproj", "{79371214-17E0-43E7-BD78-1ED05C36A015}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MalgreToutV2Tests", "MalgreToutV2Tests\MalgreToutV2Tests.csproj", "{596E4234-340E-4CC7-B542-C96939A13CBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MalgreToutV2Tests", "MalgreToutV2Tests\MalgreToutV2Tests.csproj", "{596E4234-340E-4CC7-B542-C96939A13CBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
