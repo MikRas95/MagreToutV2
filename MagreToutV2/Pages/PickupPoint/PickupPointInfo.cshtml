@@ -2,39 +2,79 @@
 @model MalgreToutV2.Pages.PickupPoint.PickupPointInfoModel
 @{
 }
+<h1>@Model.PickupPoint.Name</h1>
+<div class="row">
+    <div class="col-sm-4">
+        <div><img src="~/imgs/location2.png" style="height: 350px; width: 100%; object-fit: contain;" /></div>
+    </div>
+    <div class="col-sm-6">
+        <div>
+            <table>
+                <tr>
+                    <td><strong>Name:</strong></td>
+                    <td>@Model.PickupPoint.Name</td>
+                </tr>
+                <tr>
+                    <td><strong>Address:</strong></td>
+                    <td>@Model.PickupPoint.Address</td>
+                </tr>
+                <tr>
+                    <td><strong>Postal code:</strong></td>
+                    <td>@Model.PickupPoint.PostalCode</td>
+                </tr>
+                <tr>
+                    <td><strong>Country:</strong></td>
+                    <td>@Model.PickupPoint.Country</td>
+                </tr>
+                <tr>
+                    <td><strong>Phonenumber:</strong></td>
+                    <td>@Model.PickupPoint.PhoneNumber</td>
+                </tr>
+                <tr>
+                    <td><strong>No. of magazines:</strong></td>
+                    <td>@Model.PickupPoint.NoOfMagazine</td>
+                </tr>
+                <tr>
+                    <td><strong>Opening time:</strong></td>
+                    <td>@Model.PickupPoint.OpeningTime</td>
+                </tr>
+                <tr>
+                    <td><strong>Closing time:</strong></td>
+                    <td>@Model.PickupPoint.CloseningTime</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>Contact persons:</strong></td>
+                    @if (@Model.contactPerson != null)
+                    {
+                        <td>@Model.contactPerson.Name</td>
+                    }
+                    else
+                    {
+                        <td>No contact person</td>
+                    }
+                </tr>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>PostalCode</th>
-            <th>Country</th>
-            <th>PhoneNumber</th>
-            <th>NoOfMagazine</th>
-            <th>OpeningTime</th>
-            <th>CloseningTime</th>
-            <th>Contact Person</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>@Model.PickupPoint.Name</td>
-            <td>@Model.PickupPoint.Address</td>
-            <td>@Model.PickupPoint.PostalCode</td>
-            <td>@Model.PickupPoint.Country</td>
-            <td>@Model.PickupPoint.PhoneNumber</td>
-            <td>@Model.PickupPoint.NoOfMagazine</td>
-            <td>@Model.PickupPoint.OpeningTime</td>
-            <td>@Model.PickupPoint.CloseningTime</td>
-            @if(@Model.contactPerson != null){
-                <td>@Model.contactPerson.Name</td>
-            }
-            else {
-                <td>No contact person</td>
-            }
-        </tr>
-</table>
-<div class="form-group">
-    <a asp-page="/PickupPoint/Read">Back to List</a>
+                <tr>
+                    <td><a asp-page="/PickupPoint/Read">Tilbage</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        text-align: left;
+        padding: 8px;
+    }
+
+    h1 {
+        margin-bottom: 1em;
+    }
+</style>

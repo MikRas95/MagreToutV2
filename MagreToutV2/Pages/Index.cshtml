@@ -9,29 +9,29 @@
 
     <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
 </head>
-<h1>Dashboard</h1>
-<h4>Velkommen</h4>
+<h1><i class="fas fa-chart-line"></i> Dashboard</h1>
+<h4>Velkommen!</h4>
 <div class="text-center">
     <div class="wrapper">
         <div class="row">
                 <div class="col-sm">
                     <h5>Opsamlingssteder</h5>
                     <a asp-page="/PickupPoint/Read">
-                        <img src="~/imgs/database.png" style="height: 150px; width: auto; object-fit:contain;" class="index-pics" />
+                        <i class="fas fa-map-marked-alt fa-9x" style="color: #1D1B26; height: 150px; width: auto; object-fit:contain;"></i>
                     </a>
                 </div>
 
                 <div class="col-sm">
                     <h5>Opsamlingsperson</h5>
                     <a asp-page="/ContactPerson/Read">
-                        <img src="~/imgs/location2.png" style="height: 150px; width: auto; object-fit:contain;" class="index-pics" />
+                        <i class="fas fa-people-carry fa-9x" style="color: #1D1B26; height: 150px; width: auto; object-fit: contain;"></i>
                     </a>
                 </div>
 
                 <div class="col-sm">
                     <h5>Medarbejdere</h5>
                     <a asp-page="/Employee/Read">
-                        <img src="~/imgs/employee.png" style="height: 150px; width: auto; object-fit:contain;" class="index-pics" />
+                        <i class="fas fa-users fa-9x" style="color: #1D1B26; height: 150px; width: auto; object-fit: contain;"></i>
                     </a>
                 </div>
         </div>
@@ -39,13 +39,11 @@
         <div class="row">
             <div class="col">
                 <div class="canvas-container">
-                    <h5>En chart der ser fed ud</h5>
                     <canvas id="myChart"></canvas>
                 </div>
             </div>
 
             <div class="col">
-                <h5>Reklame Indtægter</h5>
                 <a asp-page="/Magazine/Read">
                     @Html.Raw(Model.ChartJson)
                 </a>
@@ -117,12 +115,6 @@
     height: 100%;
     padding-bottom: 1rem;
 }
-
-/*@@media only screen and (max-width: 1200px) {
-    .col-sm {
-        height:auto;
-    }
-}*/
 </style>
 <script>
     const data = {
