@@ -12,8 +12,8 @@
 <table class="table table-bordered table-responsive-sm table-hover">
     <thead style="background:lightgray">
         <tr>
-            <th>Pris</th>
             <th>Firma</th>
+            <th>Pris</th>
             <th></th>
             <th></th>
         </tr>
@@ -29,8 +29,6 @@
                     <td>@point.AdPrice</td>
                     <td><a class="btn btn-outline-secondary" asp-route-id="@point.AdId" asp-page="/Ads/Update">Update</a> </td>
                     <td> <a class="btn btn-outline-danger" asp-page="/Magazine/Delete" asp-route-PickupPointId="@point.AdId">Delete</a></td>
-                    @*<td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
-                    *@
                 </tr>
             }
         }
