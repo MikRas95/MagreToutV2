@@ -30,8 +30,8 @@ namespace MalgreToutV2.Services.EFServices
                 .FirstOrDefault(m => m.PickupPointId == id);
             return pickupPoint;
         }
-        public void AddPickupPoint(DemoPickupPoint pickUpPoint) {
-            context.Add(pickUpPoint);
+        public void AddPickupPoint(DemoPickupPoint pickupPoint) {
+            context.Add(pickupPoint);
             context.SaveChanges();
         }
 
