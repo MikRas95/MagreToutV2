@@ -21,6 +21,12 @@
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Ad.Company)
             </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Ad.Version)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Ad.Version)
+            </dd>
         </dl>
         <input type="hidden" asp-for="Ad.AdId" />
         <input type="submit" value="Delete" class="btn btn-danger" />

@@ -13,27 +13,34 @@ namespace MalgreToutV2.Pages.Ads
     {
         [BindProperty]
         public DemoAd Ad { get; set; }
-        public IAd service;
+        public DemoMagazine Magazine {get; set;}
+        private IAd Service;
+        private IMagazine MagazineService;
+        [BindProperty]
+        public IEnumerable<DemoMagazine> Magazines { get; set; }
 
-
-        public CreateModel(IAd Service)
+        public CreateModel(IAd service, IMagazine magazineService)
         {
-            service = Service;
+            MagazineService = magazineService;
+            Service = service;
             Ad = new DemoAd();
         }
-        public IActionResult OnGet()
+        public void OnGet(int id)
         {
-            return Page();
+            Magazine = MagazineService.GetMagazine(id);
+            Magazines = MagazineService.GetMagazines();
+            
         }
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
+                Magazines = MagazineService.GetMagazines();
                 return Page();
             }
-            service.AddAd(Ad);
+            Service.AddAd(Ad);
 
-            return RedirectToPage("/Ads/Read");
+            return RedirectToPage("/Ads/Read", new { id = Ad.VersionId});
         }
     }
 }
