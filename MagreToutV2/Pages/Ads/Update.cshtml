@@ -24,6 +24,12 @@
                 <span asp-validation-for="@Model.Ad.AdPrice" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label hidden="hidden" asp-for="@Model.Ad.VersionId" class="control-label"></label>
+                <input hidden="hidden" asp-for="@Model.Ad.VersionId" class="form-control" />
+                <span asp-validation-for="@Model.Ad.VersionId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
                 <input type="submit" value="Update" class="btn btn-primary" />
                 <br />
                 <a asp-page="/Ads/Read">Back to List</a>

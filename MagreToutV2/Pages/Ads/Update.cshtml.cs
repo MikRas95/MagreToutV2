@@ -31,7 +31,7 @@ namespace MalgreToutV2.Pages.Ads
                 return Page();
             }
             adService.UpdateAd(Ad);
-            return RedirectToPage("/Magazine/Read");
+            return RedirectToPage("/Ads/Read", new { id = Ad.VersionId});
         }
     }
 }
