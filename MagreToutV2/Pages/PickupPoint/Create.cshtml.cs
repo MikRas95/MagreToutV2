@@ -13,10 +13,10 @@ namespace MalgreToutV2.Pages.PickupPoint
     {
         [BindProperty]
         public DemoPickupPoint PickupPoint { get; set; }
-        public IPickupPoint service;
+        public IGenerics service;
 
         
-        public CreateModel(IPickupPoint Service) {
+        public CreateModel(IGenerics Service) {
             service = Service;
             PickupPoint = new DemoPickupPoint();
         }
@@ -28,7 +28,7 @@ namespace MalgreToutV2.Pages.PickupPoint
             if (!ModelState.IsValid) {
                 return Page();
             }
-            service.AddPickupPoint(PickupPoint);
+            service.AddAnyObject(PickupPoint);
 
             // Check om GetPickupPoints er det rigtige navn
             return RedirectToPage("/PickupPoint/Read");
