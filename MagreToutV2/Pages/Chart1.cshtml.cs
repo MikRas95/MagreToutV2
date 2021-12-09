@@ -16,8 +16,8 @@ namespace FusionChartsRazorSamples.Pages
             // create data table to store data
             DataTable ChartData = new DataTable();
             // Add columns to data table
-            ChartData.Columns.Add("Company for advertisement", typeof(System.String));
-            ChartData.Columns.Add("Advertisement Price", typeof(System.Double));
+            ChartData.Columns.Add("Firmaet det drejer sig om", typeof(System.String));
+            ChartData.Columns.Add("Announce Pris", typeof(System.Double));
             // Add rows to data table
 
             ChartData.Rows.Add("Horse Medicine", 62000);
@@ -42,15 +42,15 @@ namespace FusionChartsRazorSamples.Pages
             // Set DataModel instance as the data source of the chart
             column.Data.Source = model;
             // Set Chart Title
-            column.Caption.Text = "Advertisements for the different companies";
+            column.Caption.Text = "Reklame for de forskellige firmaer";
             // Set chart sub title
             column.SubCaption.Text = "2020 - 2021";
             // hide chart Legend
             column.Legend.Show = false;
             // set XAxis Text
-            column.XAxis.Text = "Company";
+            column.XAxis.Text = "Firma";
             // Set YAxis title
-            column.YAxis.Text = "Money";
+            column.YAxis.Text = "Penge";
             // set chart theme
             column.ThemeName = FusionChartsTheme.ThemeName.FUSION;
             // set chart rendering json

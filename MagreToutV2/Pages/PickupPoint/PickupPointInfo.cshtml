@@ -11,47 +11,47 @@
         <div>
             <table>
                 <tr>
-                    <td><strong>Name:</strong></td>
+                    <td><strong>Navn:</strong></td>
                     <td>@Model.PickupPoint.Name</td>
                 </tr>
                 <tr>
-                    <td><strong>Address:</strong></td>
+                    <td><strong>Adresse:</strong></td>
                     <td>@Model.PickupPoint.Address</td>
                 </tr>
                 <tr>
-                    <td><strong>Postal code:</strong></td>
+                    <td><strong>Post nr:</strong></td>
                     <td>@Model.PickupPoint.PostalCode</td>
                 </tr>
                 <tr>
-                    <td><strong>Country:</strong></td>
+                    <td><strong>Land:</strong></td>
                     <td>@Model.PickupPoint.Country</td>
                 </tr>
                 <tr>
-                    <td><strong>Phonenumber:</strong></td>
+                    <td><strong>Tlf:</strong></td>
                     <td>@Model.PickupPoint.PhoneNumber</td>
                 </tr>
                 <tr>
-                    <td><strong>No. of magazines:</strong></td>
+                    <td><strong>Antal Magasiner:</strong></td>
                     <td>@Model.PickupPoint.NoOfMagazine</td>
                 </tr>
                 <tr>
-                    <td><strong>Opening time:</strong></td>
+                    <td><strong>Åbningstid:</strong></td>
                     <td>@Model.PickupPoint.OpeningTime</td>
                 </tr>
                 <tr>
-                    <td><strong>Closing time:</strong></td>
+                    <td><strong>Lukketid:</strong></td>
                     <td>@Model.PickupPoint.CloseningTime</td>
                 </tr>
                 
                 <tr>
-                    <td><strong>Contact persons:</strong></td>
+                    <td><strong>Kontaktpersoner:</strong></td>
                     @if (@Model.contactPerson != null)
                     {
                         <td>@Model.contactPerson.Name</td>
                     }
                     else
                     {
-                        <td>No contact person</td>
+                        <td>Ingen Kontaktpersoner</td>
                     }
                 </tr>
 

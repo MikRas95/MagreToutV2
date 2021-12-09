@@ -30,7 +30,7 @@
                 <input asp-for="@Model.ContactPerson.Email" class="form-control" />
                 <span asp-validation-for="@Model.ContactPerson.Email" class="text-danger"></span>
             </div>
-            <label>Choose a Pickup Point:</label>
+            <label>Vælg et opsamlingssted:</label>
             <select asp-for="@Model.ContactPerson.PickupPointId">
                 @if (Model != null) {
                     @foreach (var item in Model.pickupPoints) {
@@ -42,7 +42,7 @@
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
             <div>
-                <a class="btn btn-outline-secondary" asp-page="/ContactPerson/Read">Back to List</a>
+                <a class="btn btn-outline-secondary" asp-page="/ContactPerson/Read">Tilbage</a>
             </div>
         </form>
     </div>

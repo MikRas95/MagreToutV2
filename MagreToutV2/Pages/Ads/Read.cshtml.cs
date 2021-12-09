@@ -29,6 +29,7 @@ namespace MalgreToutV2.Pages.Ads
         public void OnGet(int id)
         {
             ads = AdService.GetAds(id);
+            //ViewData["Name"] = Magazine.Version;
         }
     }
 }
