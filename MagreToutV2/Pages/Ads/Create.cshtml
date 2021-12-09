@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model MalgreToutV2.Pages.Ads.CreateModel
 @{
     ViewData["Title"] = "Create";
@@ -20,6 +20,23 @@
                 <input asp-for="@Model.Ad.AdPrice" class="form-control" />
                 <span asp-validation-for="@Model.Ad.AdPrice" class="text-danger"></span>
             </div>
+            @*<div class="form-group">
+                <label asp-for="@Model.Ad.VersionId" class="control-label"></label>
+                <input asp-for="@Model.Ad." min="0" class="form-control" />
+                <span asp-validation-for="@Model.Ad.VersionId" class="text-danger"></span>
+            </div>*@
+            <label>Choose a Magazine:</label>
+            <select asp-for="@Model.Ad.VersionId">
+                @if (Model != null)
+                {
+                    @foreach (var item in Model.Magazines)
+                    {
+                        <option value="@item.VersionId">@item.Version</option>
+
+                    }}
+            </select>
+
+
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

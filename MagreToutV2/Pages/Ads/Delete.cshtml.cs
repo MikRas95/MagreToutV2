@@ -19,14 +19,14 @@ namespace MalgreToutV2.Pages.Ads
             this.Service = service;
         }
 
-        public void OnGet(int AdId)
+        public void OnGet(int id)
         {
-            Ad = Service.GetAd(AdId);
+            Ad = Service.GetAd(id);
         }
         public IActionResult OnPost()
         {
             Service.RemoveAd(Ad);
-            return RedirectToPage("Read");
+            return RedirectToPage("/Ads/Read", new { id = Ad.VersionId });
         }
     }
 }
