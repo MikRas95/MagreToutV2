@@ -16,7 +16,7 @@ namespace MalgreToutV2.Pages.Ads
         public int Id { get; set; }
         [BindProperty]
         public IEnumerable<DemoAd> ads { get; set; }
-        public IMagazine magazine { get;}
+        private IMagazine magazine { get;}
         [BindProperty]
         public DemoMagazine Magazine { get; set; }
         private IAd AdService;
