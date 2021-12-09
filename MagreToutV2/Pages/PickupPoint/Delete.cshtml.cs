@@ -16,10 +16,12 @@ namespace MalgreToutV2.Pages.PickupPoint
         public DemoPickupPoint PickupPoint { get; set; }
 
         IPickupPoint PickupPointService;
+        IGenerics genericService;
 
-        public DeleteModel(IPickupPoint Context)
+        public DeleteModel(IPickupPoint Context, IGenerics Service)
         {    
             PickupPointService = Context;
+            genericService = Service;
         }   
         public void OnGet(int PickupPointId)
         {
@@ -28,7 +30,7 @@ namespace MalgreToutV2.Pages.PickupPoint
 
         public IActionResult OnPost()
         {
-            PickupPointService.DeletePickupPoint(PickupPoint);
+            genericService.DeleteAnyObject<DemoPickupPoint>(PickupPoint);
             
             return RedirectToPage("/PickupPoint/Read");
         }

@@ -1,7 +1,7 @@
-﻿@page
+﻿@page   "{id}"
 @model MalgreToutV2.Pages.Ads.ReadModel
 @{
-    ViewData["Title"] = "GetMagazines";
+
 }
 <h2>List of Ads</h2>
 <br />
@@ -28,7 +28,7 @@
                     <td>@point.Company</td>
                     <td>@point.AdPrice kr.</td>
                     <td><a class="btn btn-outline-secondary" asp-route-id="@point.AdId" asp-page="/Ads/Update">Update</a> </td>
-                    <td> <a class="btn btn-outline-danger" asp-page="/Magazine/Delete" asp-route-PickupPointId="@point.AdId">Delete</a></td>
+                    <td> <a class="btn btn-outline-danger" asp-page="/Ads/Delete" asp-route-id="@point.AdId">Delete</a></td>
                 </tr>
             }
         }

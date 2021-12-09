@@ -14,7 +14,7 @@ namespace MalgreToutV2.Models
     {
         public DemoMagazine()
         {
-            DemoMagAds = new HashSet<DemoMagAd>();
+            DemoAds = new HashSet<DemoAd>();
         }
 
         [Key]
@@ -23,7 +23,7 @@ namespace MalgreToutV2.Models
         [StringLength(255)]
         public string Version { get; set; }
 
-        [InverseProperty(nameof(DemoMagAd.Version))]
-        public virtual ICollection<DemoMagAd> DemoMagAds { get; set; }
+        [InverseProperty(nameof(DemoAd.Version))]
+        public virtual ICollection<DemoAd> DemoAds { get; set; }
     }
 }

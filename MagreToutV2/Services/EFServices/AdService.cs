@@ -27,10 +27,11 @@ namespace MalgreToutV2.Services.EFServices
         }
 
         // kan godt være den her skal ændres senere for at inclue DemoAd
-        public IEnumerable<DemoAd> GetAds()
+        public IEnumerable<DemoAd> GetAds(int id)
         {
             IEnumerable<DemoAd> list;
-            list = context.DemoAds.Where(m => m.AdId == m.AdId)
+            list = context.DemoAds.Where(m => m.VersionId == id)
+            .Include(a => a.Version)
             .AsNoTracking();
 
             return list;

@@ -11,7 +11,7 @@ namespace MalgreToutV2.Services.Interface
     {
         void Update(DemoPickupPoint pickupPoint);
         IEnumerable<DemoPickupPoint> GetAllPickupPoints();
-        void AddPickupPoint(DemoPickupPoint pickUpPoint);
+        void AddPickupPoint(DemoPickupPoint pickupPoint);
         void DeletePickupPoint(DemoPickupPoint pickupPoint);
         DemoPickupPoint GetPickupPointById(int PickupPointId);
         DemoPickupPoint GetPickupPoint(int id);
