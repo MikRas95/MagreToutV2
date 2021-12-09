@@ -33,6 +33,7 @@ namespace MalgreToutV2
             services.AddTransient<IEmployee, EmployeeService>();
             services.AddTransient<IMagazine, MagazineService>();
             services.AddTransient<ILogin, LoginService>();
+            services.AddTransient<IGenerics, GenericService>();
             services.AddTransient<IAd, AdService>();
         }
 
