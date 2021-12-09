@@ -3,9 +3,10 @@
 @{
     ViewData["Title"] = "GetMagazines";
 }
-<h2>List of Magazines</h2>
+<h2>Liste af Magasiner</h2>
+<a asp-page="/Index">Tilbage til Dashboard</a>
 <br />
-<a class="btn btn-outline-primary" asp-page="/Magazine/Create">Create</a>
+<a class="btn btn-outline-primary" asp-page="/Magazine/Create">Opret</a>
 <br />
 <br />
 
@@ -29,9 +30,9 @@
             <td>@point.VersionId</td>
             <td>@point.Version</td>
             @*<td><a class="btn btn-outline-info" asp-page="/Ads/Read">View Ads</a> </td>*@
-            <td><a class="btn btn-outline-secondary" asp-route-id="@point.VersionId" asp-page="/Ads/Read">View Ads</a> </td>
-            <td><a class="btn btn-outline-secondary" asp-route-id="@point.VersionId" asp-page="/Magazine/Update">Update</a> </td>
-            <td> <a class="btn btn-outline-danger" asp-page="/Magazine/Delete" asp-route-Id="@point.VersionId">Delete</a></td>
+            <td><a class="btn btn-outline-secondary" asp-route-id="@point.VersionId" asp-page="/Ads/Read">Se Announcer</a> </td>
+            <td><a class="btn btn-outline-secondary" asp-route-id="@point.VersionId" asp-page="/Magazine/Update">Opdater</a> </td>
+            <td> <a class="btn btn-outline-danger" asp-page="/Magazine/Delete" asp-route-Id="@point.VersionId">Slet</a></td>
             @*<td> <a class="btn btn-outline-secondary" asp-page="/PickupPoint/PickupPointInfo" asp-route-Id="@point.PickupPointId">Info</a></td>
             *@
         </tr>

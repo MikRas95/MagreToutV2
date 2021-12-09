@@ -3,6 +3,8 @@
 @{
 
 }
+<h2>Opdater Denne Reklame: @Model.Ad.Company</h2>
+<em>Ellers gå tilbage</em>
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -32,7 +34,7 @@
             <div class="form-group">
                 <input type="submit" value="Update" class="btn btn-primary" />
                 <br />
-                <a asp-page="/Ads/Read">Back to List</a>
+                <a class="btn btn-outline-secondary" onclick="history.back()">Tilbage</a>
             </div>
         </form>
     </div>

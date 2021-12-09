@@ -3,28 +3,28 @@
 @{
     ViewData["Title"] = "GetContactPersons";
 }
-<h2><i class="fas fa-people-carry"></i> List of Pickup persons</h2>
+<h2><i class="fas fa-people-carry"></i> Liste af Kontaktpersoner</h2>
 <a asp-page="/Index">Tilbage til Dashboard</a>
 <br />
 <br />
 <form>
     <p>
-        Search: <input type="text" asp-for="FilterCriteria" />
+        Søg: <input type="text" asp-for="FilterCriteria" />
         <input type="submit" value="Filter" />
-        <a asp-page="Read">Back to Full List </a>
+        <a asp-page="Read">Tilbage til den fulde liste</a>
     </p>
 </form>
-<a class="btn btn-outline-primary" asp-page="/ContactPerson/Create">Create</a>
+<a class="btn btn-outline-primary" asp-page="/ContactPerson/Create">Opret</a>
 <br />
 <br />
 <table class="table table-bordered table-responsive-sm table-hover">
     <thead style="background: lightgray;">
         <tr style="background: lightgray;">
             <th>Id</th>
-            <th>Name</th>
-            <th>Phone number</th>
-            <th>Email</th>
-            <th>Pickup Point</th>
+            <th>Navn</th>
+            <th>Tlf</th>
+            <th>E-mail</th>
+            <th>Opsamlingssted</th>
             <th></th>
             <th></th>
             <th></th>
@@ -51,10 +51,10 @@
                         <a class="btn btn-outline-secondary" asp-page="/ContactPerson/PersonInfo" asp-route-id="@person.ContactPersonId">Info</a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" asp-page="/ContactPerson/Delete" asp-route-ContactPersonId="@person.ContactPersonId">Delete</a>
+                        <a class="btn btn-outline-danger" asp-page="/ContactPerson/Delete" asp-route-ContactPersonId="@person.ContactPersonId">Slet</a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-secondary" asp-page="/ContactPerson/Update" asp-route-ContactPersonId="@person.ContactPersonId">Update</a>
+                        <a class="btn btn-outline-secondary" asp-page="/ContactPerson/Update" asp-route-ContactPersonId="@person.ContactPersonId">Opdater</a>
 
                     </td>
 

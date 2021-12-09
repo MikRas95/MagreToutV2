@@ -3,28 +3,28 @@
 @{
     ViewData["Title"] = "";
 }
-<h2><i class="fas fa-users"></i> List of Employees</h2>
+<h2><i class="fas fa-users"></i> Liste af medarbejdere</h2>
 <a asp-page="/Index">Tilbage til Dashboard</a>
 <br />
 <br />
 <form>
     <p>
-        Search: <input type="text" asp-for="FilterCriteria" />
+        Søg: <input type="text" asp-for="FilterCriteria" />
         <input type="submit" value="Filter" />
-        <a asp-page="/Employee/Read">Back to Full List</a>
+        <a asp-page="/Employee/Read">Tilbage til den fulde liste</a>
     </p>
 </form>
-<a class="btn btn-outline-primary" asp-page="/Employee/Create">Create</a>
+<a class="btn btn-outline-primary" asp-page="/Employee/Create">Opret</a>
 <br />
 <br />
 <table class="table table-bordered table-responsive-sm table-hover">
     <thead style="background: lightgray;">
         <tr>
             <th>Id</th>
-            <th>Name</th>
-            <th>Role</th>
-            <th>Username</th>
-            <th>Password</th>
+            <th>Navn</th>
+            <th>Rolle</th>
+            <th>Brugernavn</th>
+            <th>Adgangskode</th>
             <th></th>
             <th></th>
             <th></th>
@@ -49,10 +49,10 @@
                         <a class="btn btn-outline-secondary" asp-page="/Employee/employeeInfo" asp-route-id="@employee.EmployeeId">Info</a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-danger" asp-page="/Employee/Delete" asp-route-EmployeeId="@employee.EmployeeId">Delete</a>
+                        <a class="btn btn-outline-danger" asp-page="/Employee/Delete" asp-route-EmployeeId="@employee.EmployeeId">Slet</a>
                     </td>
                     <td>
-                        <a class="btn btn-outline-secondary" asp-page="/Employee/Update" asp-route-EmployeeId="@employee.EmployeeId">Update</a>
+                        <a class="btn btn-outline-secondary" asp-page="/Employee/Update" asp-route-EmployeeId="@employee.EmployeeId">Opdater</a>
 
                     </td>
 
