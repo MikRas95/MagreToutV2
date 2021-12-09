@@ -51,5 +51,6 @@ namespace MalgreToutV2.Services.EFServices
             context.DemoAds.Update(ad);
             context.SaveChanges();
         }
+
     }
 }
