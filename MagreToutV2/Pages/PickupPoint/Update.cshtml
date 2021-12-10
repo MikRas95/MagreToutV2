@@ -8,52 +8,67 @@
         <form method="post">
             <div asp-validation-summary="  ModelOnly  " class="text-danger">
             </div>
-            <div class="form-group">
-                <label hidden="hidden" asp-for="@Model.PickupPoint.PickupPointId" class="control-label"></label>
-                <input hidden="hidden" asp-for="@Model.PickupPoint.PickupPointId" class="form-control" />
-                <span asp-validation-for="@Model.PickupPoint.PickupPointId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.PickupPoint.Name" class="control-label"></label>
-                <input asp-for="@Model.PickupPoint.Name" type="text" class="form-control" />
-                <span asp-validation-for="@Model.PickupPoint.Name" class="text-danger"></span>
-            </div>
+            
+                    <div class="form-group">
+                        <label hidden="hidden" asp-for="@Model.PickupPoint.PickupPointId" class="control-label"></label>
+                        <input hidden="hidden" asp-for="@Model.PickupPoint.PickupPointId" class="form-control" />
+                        <span asp-validation-for="@Model.PickupPoint.PickupPointId" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                                <label asp-for="@Model.PickupPoint.Name" class="control-label"></label>
+                                <input asp-for="@Model.PickupPoint.Name" type="text" class="form-control" />
+                                <span asp-validation-for="@Model.PickupPoint.Name" class="text-danger"></span>
+                            </div>
 
-            <div class="form-group">
-                <label asp-for="@Model.PickupPoint.Address" class="control-label"></label>
-                <input asp-for="@Model.PickupPoint.Address" type="text" class="form-control" />
-                <span asp-validation-for="@Model.PickupPoint.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.PickupPoint.Country" class="control-label"></label>
-                <input asp-for="@Model.PickupPoint.Country" type="text" class="form-control" />
-                <span asp-validation-for="@Model.PickupPoint.Country" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.PickupPoint.PostalCode" class="control-label"></label>
-                <input asp-for="@Model.PickupPoint.PostalCode" type="text" class="form-control" />
-                <span asp-validation-for="@Model.PickupPoint.PostalCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.PickupPoint.PhoneNumber" class="control-label"></label>
-                <input asp-for="@Model.PickupPoint.PhoneNumber" type="text" class="form-control" />
-                <span asp-validation-for="@Model.PickupPoint.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="@Model.PickupPoint.NoOfMagazine" class="control-label"></label>
-                <input asp-for="@Model.PickupPoint.NoOfMagazine" min="0" type="text" class="form-control" />
-                <span asp-validation-for="@Model.PickupPoint.NoOfMagazine" class="text-danger"></span>
-            </div>
-            @*<div class="form-group">
-            <label asp-for="@Model.PickupPoint.ContactPersonId" class="control-label"></label>
-            <input asp-for="@Model.PickupPoint.ContactPersonId" class="form-control"/>
-            <span asp-validation-for="@Model.PickupPoint.ContactPersonId" class="text-danger"></span>
-        </div>*@
+                            <div class="form-group">
+                                <label asp-for="@Model.PickupPoint.Address" class="control-label"></label>
+                                <input asp-for="@Model.PickupPoint.Address" type="text" class="form-control" />
+                                <span asp-validation-for="@Model.PickupPoint.Address" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.PickupPoint.Country" class="control-label"></label>
+                                <input asp-for="@Model.PickupPoint.Country" type="text" class="form-control" />
+                                <span asp-validation-for="@Model.PickupPoint.Country" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.PickupPoint.PostalCode" class="control-label"></label>
+                                <input asp-for="@Model.PickupPoint.PostalCode" type="text" class="form-control" />
+                                <span asp-validation-for="@Model.PickupPoint.PostalCode" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.PickupPoint.PhoneNumber" class="control-label"></label>
+                                <input asp-for="@Model.PickupPoint.PhoneNumber" type="text" class="form-control" />
+                                <span asp-validation-for="@Model.PickupPoint.PhoneNumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.PickupPoint.NoOfMagazine" class="control-label"></label>
+                                <input asp-for="@Model.PickupPoint.NoOfMagazine" min="0" type="text" class="form-control" />
+                                <span asp-validation-for="@Model.PickupPoint.NoOfMagazine" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="col-sm">
+                            <div class="form-group ">
+                                <label asp-for="@Model.PickupPoint.OpeningTime" class="control-label"></label>
+                                <input asp-for="@Model.PickupPoint.OpeningTime" type="time" min="0" max="60" class="form-control" />
+                                <span asp-validation-for="@Model.PickupPoint.OpeningTime" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="@Model.PickupPoint.CloseningTime" class="control-label"></label>
+                                <input asp-for="@Model.PickupPoint.CloseningTime" min="0" max="60" type="time" class="form-control" />
+                                <span asp-validation-for="@Model.PickupPoint.CloseningTime" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
             <div class="form-group">
                 <input type="submit" value="Opdater" class="btn btn-primary" />
                 <br />
-                <a asp-page="/PickupPoint/Read">Tilbage</a>
             </div>
+            <a class="btn-outline-secondary" asp-page="/PickupPoint/Read">Tilbage</a>
         </form>
     </div>
 </div>
