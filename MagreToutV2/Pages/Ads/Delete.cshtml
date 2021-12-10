@@ -13,7 +13,7 @@
                 @Html.DisplayNameFor(model => model.Ad.AdPrice)
             </dt>
             <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Ad.AdPrice)
+                @Html.DisplayFor(model => model.Ad.AdPrice) kr.
             </dd>
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Ad.Company)
@@ -21,12 +21,12 @@
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Ad.Company)
             </dd>
-            <dt class="col-sm-2">
+            @*<dt class="col-sm-2">
                 @Html.DisplayNameFor(model => model.Ad.Version)
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Ad.Version)
-            </dd>
+            </dd>*@
         </dl>
         <input type="hidden" asp-for="Ad.AdId" />
         <input type="hidden" asp-for="Ad.VersionId" />
