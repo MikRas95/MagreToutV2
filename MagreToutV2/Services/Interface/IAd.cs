@@ -10,7 +10,7 @@ namespace MalgreToutV2.Services.Interface
     {
         DemoAd GetAd(int id);
         void AddAd(DemoAd ad);
-        void RemoveAd(DemoAd ad);
+        DemoAd RemoveAd(DemoAd ad);
         void UpdateAd(DemoAd ad);
         IEnumerable<DemoAd> GetAds(int id);
     }
