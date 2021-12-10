@@ -1,37 +1,92 @@
 ﻿@page
 @model IndexModel
 @{
+    Layout = null;
     ViewData["Title"] = "Home page";
 }
-<div class="container">
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .button {
+            display: inline-block;
+            border-radius: 4px;
+            background-color: black;
+            border: solid 2px;
+            border-color: whitesmoke;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="margin: auto; width: 60%; border: 3px solid whitesmoke; padding: 10px; background: #000000">
     <div class="row">
         <div class="col-2">
         </div>
         <div class="col-8">
-            <div class="card text-center">
-                <div class="card-header">Admin login</div>
+            <div class="card text-center" style="margin: auto; width: 60%;">
+                <div class="card-header" style="color: whitesmoke; font-size: 60px">
+                    <h2>Admin login</h2>
+                </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form method="post" style="color: whitesmoke; position: relative; left: 100px;">
                         <div class="mb-3">
-                            <label for="Username" class="form-label">
-                                Brugernavn
+                            <label style="font-size: 20px" for="Username" class="form-label">
+                                
                             </label>
-                            <input class="form-control" id="Username" asp-for="@Model.Username" placeholder="Username" />
+                            <input style="font-size: 20px; margin: 8px;" class="form-control" id="Username" asp-for="@Model.Username" placeholder="Username"/>
                         </div>
                         <div class="mb-3">
-                            <label for="Password" class="form-label">
-                                Adgangskode
+                            <label style="font-size: 20px" for="Password" class="form-label">
+                                
                             </label>
-                            <input class="form-control" id="Password" asp-for="@Model.Password" placeholder="Password" />
+                            <input style="font-size: 20px; margin: 8px;" class="form-control" id="Password" asp-for="@Model.Password" placeholder="Password"/>
                         </div>
+                        <br/>
                         <div class="mb-3">
 
-                            <input class="btn btn-primary" value="Submit" type="submit" />
+                            @*<input class="btn btn-outline-secondary" value="Submit" type="submit" />*@
+                            <button class="button" value="Submit" style="vertical-align:middle"><span>Log In </span></button>
                         </div>
                     </form>
                 </div>
+                <p style="color: whitesmoke; position: relative; right: 15em; font-size: 10px;">Skriv URL hvis du ikke kender koden.</p>
             </div>
         </div>
         <div class="col-2"></div>
     </div>
 </div>
+</body>
+</html>
