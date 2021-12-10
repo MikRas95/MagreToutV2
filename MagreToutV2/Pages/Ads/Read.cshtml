@@ -6,7 +6,7 @@
 <h2>List of Ads @*in @ViewData["Name"]*@</h2>
 <a asp-page="/Index">Tilbage til Dashboard</a>
 <br />
-<a class="btn btn-outline-primary" asp-page="/Ads/Create">Create</a> <em>|</em> <a class="btn btn-outline-secondary" asp-page="/Magazine/Read">Tilbage til Magasiner</a>
+<a class="btn btn-outline-primary" asp-route-id="@Model.Magazine.VersionId" asp-page="/Ads/Create">Create</a> <em>|</em> <a class="btn btn-outline-secondary" asp-page="/Magazine/Read">Tilbage til Magasiner</a>
 <br />
 <br />
 

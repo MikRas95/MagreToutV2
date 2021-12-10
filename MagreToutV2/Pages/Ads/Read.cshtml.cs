@@ -16,20 +16,20 @@ namespace MalgreToutV2.Pages.Ads
         public int Id { get; set; }
         [BindProperty]
         public IEnumerable<DemoAd> ads { get; set; }
-        private IMagazine magazine { get;}
+        private IMagazine magazineService { get;}
         [BindProperty]
         public DemoMagazine Magazine { get; set; }
         private IAd AdService;
         public ReadModel(IAd service, IMagazine mService)
         {
             AdService = service;
-            magazine = mService;
+            magazineService = mService;
             ads = new List<DemoAd>();
         }
         public void OnGet(int id)
         {
             ads = AdService.GetAds(id);
-            //ViewData["Name"] = Magazine.Version;
+            Magazine = magazineService.GetMagazine(id);
         }
     }
 }

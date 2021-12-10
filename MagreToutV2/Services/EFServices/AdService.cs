@@ -37,13 +37,14 @@ namespace MalgreToutV2.Services.EFServices
             return list;
         }
 
-        public void RemoveAd(DemoAd ad)
+        public DemoAd RemoveAd(DemoAd ad)
         {
             if (ad != null)
             {
                 context.DemoAds.Remove(ad);
                 context.SaveChanges();
             }
+            return ad;
         }
 
         public void UpdateAd(DemoAd ad)

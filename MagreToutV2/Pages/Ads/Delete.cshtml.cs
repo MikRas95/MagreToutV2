@@ -25,8 +25,9 @@ namespace MalgreToutV2.Pages.Ads
         }
         public IActionResult OnPost()
         {
+            int Id = Ad.VersionId;
             Service.RemoveAd(Ad);
-            return RedirectToPage("/Ads/Read", new { id = Ad.VersionId });
+            return RedirectToPage("/Ads/Read", new { id = Id });
         }
     }
 }

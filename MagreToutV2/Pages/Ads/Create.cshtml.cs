@@ -13,6 +13,8 @@ namespace MalgreToutV2.Pages.Ads
     {
         [BindProperty]
         public DemoAd Ad { get; set; }
+        [BindProperty]
+        public int VersionId { get; set; }
         public DemoMagazine Magazine {get; set;}
         private IAd Service;
         private IMagazine MagazineService;
@@ -29,15 +31,16 @@ namespace MalgreToutV2.Pages.Ads
         {
             Magazine = MagazineService.GetMagazine(id);
             Magazines = MagazineService.GetMagazines();
-            
+            VersionId = Magazine.VersionId;
+
         }
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
-                Magazines = MagazineService.GetMagazines();
                 return Page();
             }
+            Ad.VersionId = VersionId;
             Service.AddAd(Ad);
 
             return RedirectToPage("/Ads/Read", new { id = Ad.VersionId});
