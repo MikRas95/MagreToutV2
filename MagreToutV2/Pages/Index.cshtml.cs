@@ -1,72 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using MalgreToutV2.Services.Interface;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using FusionCharts.DataEngine;
-using FusionCharts.Visualization;
 
-namespace MalgreToutV2.Pages
-{
-    public class IndexModel : PageModel
-    {
+
+namespace MalgreToutV2.Pages {
+    public class IndexModel : PageModel {
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
-        {
+        public IndexModel(ILogger<IndexModel> logger, ILogin Service) {
             _logger = logger;
+            service = Service;
         }
+        [BindProperty]
+        public string Username { get; set; }
+        [BindProperty, DataType(DataType.Password)]
+        public string Password { get; set; }
+        ILogin service;
+        public void OnGet() {
+        }
+        public IActionResult OnPost() {
+            if (service.Login(Username, Password)) {
+                return RedirectToPage("/FrontPage");
+            }
+            return Page();
 
 
-        public string ChartJson { get; internal set; }
-        public void OnGet()
-        {
-
-            // create data table to store data
-            DataTable ChartData = new DataTable();
-            // Add columns to data table
-            ChartData.Columns.Add("Firmaet det drejer sig om", typeof(System.String));
-            ChartData.Columns.Add("Announce Pris", typeof(System.Double));
-            // Add rows to data table
-
-            ChartData.Rows.Add("Horse Medicine", 62000);
-            ChartData.Rows.Add("Horse R' Us", 46000);
-            ChartData.Rows.Add("Me myself and horse", 38000);
-            ChartData.Rows.Add("Horse feeder 2000", 31000);
-            ChartData.Rows.Add("Horse saddles", 27000);
-            ChartData.Rows.Add("Sports Gear", 14000);
-            ChartData.Rows.Add("Sport Master", 14000);
-
-            // Create static source with this data table
-            StaticSource source = new StaticSource(ChartData);
-            // Create instance of DataModel class
-            DataModel model = new DataModel();
-            // Add DataSource to the DataModel
-            model.DataSources.Add(source);
-            // Instantiate Column Chart
-            Charts.ColumnChart column = new Charts.ColumnChart("first_chart");
-            // Set Chart's width and height
-            column.Width.Pixel(700);
-            column.Height.Pixel(400);
-            // Set DataModel instance as the data source of the chart
-            column.Data.Source = model;
-            // Set Chart Title
-            column.Caption.Text = "Reklame for de forskellige firmaer";
-            // Set chart sub title
-            column.SubCaption.Text = "2020 - 2021";
-            // hide chart Legend
-            column.Legend.Show = false;
-            // set XAxis Text
-            column.XAxis.Text = "Firma";
-            // Set YAxis title
-            column.YAxis.Text = "Pris";
-            // set chart theme
-            column.ThemeName = FusionChartsTheme.ThemeName.FUSION;
-            // set chart rendering json
-            ChartJson = column.Render();
         }
     }
 }

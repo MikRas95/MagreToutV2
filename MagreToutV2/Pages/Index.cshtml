@@ -3,146 +3,35 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<head>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
-
-    <script src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
-</head>
-<h1><i class="fas fa-chart-line"></i> Dashboard</h1>
-<h4>Velkommen</h4>
-<div class="text-center">
-    <div class="wrapper">
-        <div class="row">
-                <div class="col-sm">
-                    <h5>Opsamlingssteder</h5>
-                    <a asp-page="/PickupPoint/Read">
-                        <i class="fas fa-map-marked-alt fa-9x" style="color: #1D1B26; height: 150px; width: auto; object-fit:contain;"></i>
-                    </a>
-                </div>
-
-                <div class="col-sm">
-                    <h5>Opsamlingsperson</h5>
-                    <a asp-page="/ContactPerson/Read">
-                        <i class="fas fa-people-carry fa-9x" style="color: #1D1B26; height: 150px; width: auto; object-fit: contain;"></i>
-                    </a>
-                </div>
-
-                <div class="col-sm">
-                    <h5>Medarbejdere</h5>
-                    <a asp-page="/Employee/Read">
-                        <i class="fas fa-users fa-9x" style="color: #1D1B26; height: 150px; width: auto; object-fit: contain;"></i>
-                    </a>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-2">
         </div>
+        <div class="col-8">
+            <div class="card text-center">
+                <div class="card-header">Admin login</div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="Username" class="form-label">
+                                Brugernavn
+                            </label>
+                            <input class="form-control" id="Username" asp-for="@Model.Username" placeholder="Username" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="Password" class="form-label">
+                                Adgangskode
+                            </label>
+                            <input class="form-control" id="Password" asp-for="@Model.Password" placeholder="Password" />
+                        </div>
+                        <div class="mb-3">
 
-        <div class="row">
-            <div class="col">
-                <div class="canvas-container">
-                    <canvas id="myChart"></canvas>
+                            <input class="btn btn-primary" value="Submit" type="submit" />
+                        </div>
+                    </form>
                 </div>
-            </div>
-
-            <div class="col">
-                <a asp-page="/Magazine/Read">
-                    @Html.Raw(Model.ChartJson)
-                </a>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col">
-                <div class="iframe-container"><iframe loading="lazy" src="https://www.google.com/maps/d/u/0/embed?mid=1Dqkw4IL1UUOQmmyEobiD3Xv6tE5Tkk6u" width="800" height="600" data-rocket-lazyload="fitvidscompatible" class="lazyloaded" data-ll-status="loaded" ></iframe></div>
-            </div>
-            <div class="col">
-                <a class="twitter-timeline" data-height="600" href="https://twitter.com/HorsesMedia?ref_src=twsrc%5Etfw">Tweets fra Hestemedie</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-        </div>
+        <div class="col-2"></div>
     </div>
 </div>
-
-<style>
-.canvas-container {
-    width: 400px;
-    height: auto;
-    padding: 0;
-    margin: auto;
-    display: block;
-}
-
-.col-sm {
-    margin: 0.5em;
-    height: auto;
-    padding: 10px;
-    background: #FFFFFF;
-    border-radius: 3px;
-    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(0, 0, 0, 0.19);
-    transition: ease-in-out 0.2s;
-}
-
-.col {
-    margin: 0.5em;
-    background: #FFFFFF;
-    border-radius: 3px;
-    height: auto;
-    padding: 10px;
-    box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2), 0 0px 5px 0 rgba(0, 0, 0, 0.19);
-    transition: ease-in-out 0.2s;
-}
-
-.wrapper {
-    margin-left:0.5em;
-    margin-right:0.5em;
-}
-
-.col-sm:hover, .col:hover {
-    transform: scale(1.02);
-}
-
-.iframe-container {
-    position: relative;
-    max-width: 800px;
-    height: 600px;
-    margin: auto;
-}
-
-.iframe-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding-bottom: 1rem;
-}
-</style>
-<script>
-    const data = {
-        labels: [
-            'Danmark',
-            'Tyskland',
-            'Sverige'
-        ],
-        datasets: [{
-            label: 'My First Dataset',
-            data: [300, 50, 100],
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
-            ],
-            hoverOffset: 4
-        }]
-    };
-
-    const config = {
-        type: 'doughnut',
-        data: data,
-    };
-    // === include 'setup' then 'config' above ===
-
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-</script>

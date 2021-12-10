@@ -4,7 +4,7 @@
     ViewData["Title"] = "GetPickupPoints";
 }
 <h2><i class="fas fa-map-marked-alt"></i> Liste af Opsamlingssteder</h2>
-<a asp-page="/Index">Tilbage til Dashboard</a>
+<a asp-page="/FrontPage">Tilbage til Dashboard</a>
 <br />
 <br />
 <form>
@@ -20,7 +20,6 @@
 <table class="table table-bordered table-responsive-sm table-hover">
     <thead style="background:lightgray">
         <tr>
-            <th>Id</th>
             <th>Navn</th>
             <th>Adresse</th>
             <th>Land</th>
@@ -39,8 +38,6 @@
             @foreach (var point in Model.PickupPoints)
             {
                 <tr>
-
-                    <td>@point.PickupPointId</td>
                     <td>@point.Name</td>
                     <td>@point.Address</td>
                     <td>@point.Country</td>
