@@ -13,7 +13,6 @@
 <table class="table table-bordered table-responsive-sm table-hover">
     <thead style="background:lightgray">
         <tr>
-            <th>Id</th>
             <th>Version</th>
             <th></th>
             <th></th>
@@ -27,7 +26,6 @@
             @foreach (var point in Model.magazines)
             {
         <tr>
-            <td>@point.VersionId</td>
             <td>@point.Version</td>
             @*<td><a class="btn btn-outline-info" asp-page="/Ads/Read">View Ads</a> </td>*@
             <td><a class="btn btn-outline-secondary" asp-route-id="@point.VersionId" asp-page="/Ads/Read">Se Announcer</a> </td>
