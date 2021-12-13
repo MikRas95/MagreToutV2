@@ -56,7 +56,7 @@ namespace MalgreToutV2.Services.EFServices
         }
         public IEnumerable<DemoPickupPoint> GetPickupPoints(string filter)
         {
-            return this.context.Set<DemoPickupPoint>().Where(s => s.Name.StartsWith(filter) || s.Address.Contains(filter))
+            return this.context.DemoPickupPoints.Where(s => s.Name.Contains(filter) || s.Address.Contains(filter)).Include(c => c.ContactPerson)
                 .AsNoTracking().ToList();
         }
     }
