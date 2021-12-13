@@ -54,6 +54,7 @@ namespace MalgreToutV2.Services.EFServices
         {
             return context.DemoPickupPoints.Find(PickupPointId);
         }
+        //Filter manglede en include
         public IEnumerable<DemoPickupPoint> GetPickupPoints(string filter)
         {
             return this.context.DemoPickupPoints.Where(s => s.Name.Contains(filter) || s.Address.Contains(filter)).Include(c => c.ContactPerson)
